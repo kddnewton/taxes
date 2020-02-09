@@ -1,8 +1,22 @@
 {
+  "name": "taxes",
+  "version": "0.1.0",
+  "description": "US federal income tax visualization",
   "scripts": {
+    "build": "webpack --mode production",
     "compile": "tsc --noEmit",
     "start": "webpack-dev-server --mode development --hot"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kddeisz/taxes.git"
+  },
+  "author": "Kevin Deisz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kddeisz/taxes/issues"
+  },
+  "homepage": "https://github.com/kddeisz/taxes#readme",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0"

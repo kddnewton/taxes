@@ -1,6 +1,10 @@
 import path from "path";
 
 export default {
+  output: {
+    path: path.join(__dirname, "docs"),
+    filename: "main.js"
+  },
   entry: path.join(__dirname, "src", "index.tsx"),
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
@@ -9,5 +13,8 @@ export default {
     rules: [
       { test: /\.tsx?$/, use: "awesome-typescript-loader" }
     ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "docs")
   }
 };
