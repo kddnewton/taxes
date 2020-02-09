@@ -31,9 +31,9 @@ type IncomeButtonProps = {
   setIncome: (value: number) => void;
 };
 
-const IncomeButton: React.FC<IncomeButtonProps> = ({ value, setIncome }) => (
+const IncomeButton: React.FC<IncomeButtonProps> = ({ children, value, setIncome }) => (
   <button type="button" onClick={() => setIncome(value)}>
-    {value / 1000}K
+    {children || `${value / 1000}K`}
   </button>
 );
 
@@ -146,7 +146,9 @@ const App = () => {
         <IncomeButton value={100000} setIncome={setIncome} />
         <IncomeButton value={250000} setIncome={setIncome} />
         <IncomeButton value={500000} setIncome={setIncome} />
-        <IncomeButton value={1000000} setIncome={setIncome} />
+        <IncomeButton value={1000000} setIncome={setIncome}>
+          1M
+        </IncomeButton>
       </p>
       <table style={{ width: "100%" }}>
         <thead>
