@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "compile": "tsc --noEmit",
     "start": "webpack-dev-server --mode development --hot"
   },
   "dependencies": {
