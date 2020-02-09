@@ -2,19 +2,29 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 type Bracket = {
-  minimum: number;
+  min: number;
   rate: number;
 };
 
-const brackets: Bracket[] = [
-  { minimum: 0,      rate: 10   },
-  { minimum: 17850,  rate: 15   },
-  { minimum: 72500,  rate: 25   },
-  { minimum: 146400, rate: 28   },
-  { minimum: 223050, rate: 33   },
-  { minimum: 398350, rate: 35   },
-  { minimum: 450000, rate: 39.6 }
-];
+const bracketSets: { [key: string]: Bracket[] } = {
+  "2013": [
+    { min: 0,      rate: 10   },
+    { min: 17850,  rate: 15   },
+    { min: 72500,  rate: 25   },
+    { min: 146400, rate: 28   },
+    { min: 223050, rate: 33   },
+    { min: 398350, rate: 35   },
+    { min: 450000, rate: 39.6 }
+  ],
+  "2012": [
+    { min: 0,      rate: 10 },
+    { min: 17400,  rate: 15 },
+    { min: 70700,  rate: 25 },
+    { min: 142700, rate: 28 },
+    { min: 217450, rate: 33 },
+    { min: 388350, rate: 35 }
+  ]
+};
 
 type IncomeButtonProps = {
   value: number;
@@ -27,14 +37,14 @@ const IncomeButton: React.FC<IncomeButtonProps> = ({ value, setIncome }) => (
   </button>
 );
 
-const getAmount = (income: number, minimum: number, maximum?: number) => {
-  if (income < minimum) {
+const getAmount = (income: number, min: number, max?: number) => {
+  if (income < min) {
     return 0;
   }
-  if (!maximum || income < maximum) {
-    return income - minimum;
+  if (!max || income < max) {
+    return income - min;
   }
-  return maximum - minimum;
+  return max - min;
 };
 
 type AmountProps = {
@@ -72,10 +82,10 @@ type SegmentProps = {
 const Segment: React.FC<SegmentProps> = ({ amount, bracket, nextBracket, income }) => (
   <tr>
     <td>
-      <Amount amount={bracket.minimum} />
+      <Amount amount={bracket.min} />
     </td>
     <td>
-      {nextBracket && <Amount amount={nextBracket.minimum} />}
+      {nextBracket && <Amount amount={nextBracket.min} />}
     </td>
     <td>{bracket.rate}%</td>
     <td>
@@ -88,15 +98,20 @@ const Segment: React.FC<SegmentProps> = ({ amount, bracket, nextBracket, income 
 );
 
 const App = () => {
+  const [bracketSet, setBracketSet] = useState<string>("2013");
+  const onBracketSetChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setBracketSet(event.target.value);
+  };
+
   const [income, setIncome] = useState<number>(100000);
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onIncomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIncome(parseInt(event.target.value, 10));
   };
 
   let taxTotal = 0;
-  const amounts = brackets.map((bracket, index) => {
+  const amounts = bracketSets[bracketSet].map((bracket, index, brackets) => {
     const nextBracket = brackets[index + 1];
-    const amount = getAmount(income, bracket.minimum, nextBracket && nextBracket.minimum);
+    const amount = getAmount(income, bracket.min, nextBracket && nextBracket.min);
 
     taxTotal += amount * bracket.rate / 100;
     return amount;
@@ -104,12 +119,28 @@ const App = () => {
 
   return (
     <div style={{ width: "50%", margin: "10% 25%", textAlign: "center" }}>
-      <input
-        type="number"
-        name="income"
-        onChange={onChange}
-        value={income}
-      />
+      <p>
+        <label htmlFor="year">
+          Year
+          <select id="year" name="year" onChange={onBracketSetChange} value={bracketSet}>
+            {Object.keys(bracketSets).map(bracketSet => (
+              <option key={bracketSet} value={bracketSet}>{bracketSet}</option>
+            ))}
+          </select>
+        </label>
+      </p>
+      <p>
+        <label htmlFor="income">
+          Income
+          <input
+            type="number"
+            id="income"
+            name="income"
+            onChange={onIncomeChange}
+            value={income}
+          />
+        </label>
+      </p>
       <p>
         <IncomeButton value={50000} setIncome={setIncome} />
         <IncomeButton value={100000} setIncome={setIncome} />
@@ -128,11 +159,11 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-          {brackets.map((rate, index) => (
+          {bracketSets[bracketSet].map((bracket, index, brackets) => (
             <Segment
-              key={rate.minimum}
+              key={bracket.min}
               amount={amounts[index]}
-              bracket={rate}
+              bracket={bracket}
               nextBracket={brackets[index + 1]}
               income={income}
             />
