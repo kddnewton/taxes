@@ -8,6 +8,7 @@ type BracketSets = typeof import("./bracketSets.json");
 type BracketSetKey = keyof BracketSets;
 
 type Bracket = BracketSets extends ({ [key: string]: (infer U)[] }) ? U : never;
+type FilingType = "single" | "joint" | "heads";
 
 type IncomeButtonProps = {
   value: number;
@@ -35,15 +36,16 @@ type SegmentProps = {
   bracket: Bracket;
   nextBracket?: Bracket;
   income: number;
+  filingType: FilingType;
 };
 
-const Segment: React.FC<SegmentProps> = ({ amount, bracket, nextBracket, income }) => (
+const Segment: React.FC<SegmentProps> = ({ amount, bracket, nextBracket, income, filingType }) => (
   <tr>
     <td>
-      <Money amount={bracket.joint} />
+      <Money amount={bracket[filingType]} />
     </td>
     <td>
-      {nextBracket && <Money amount={nextBracket.joint} />}
+      {nextBracket && <Money amount={nextBracket[filingType]} />}
     </td>
     <td>{bracket.rate}%</td>
     <td>
@@ -61,6 +63,11 @@ const App = () => {
     setBracketSetKey(event.target.value as BracketSetKey);
   };
 
+  const [filingType, setFilingType] = useState<FilingType>("single");
+  const onFilingTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setFilingType(event.target.value as FilingType);
+  };
+
   const [income, setIncome] = useState<number>(100000);
   const onIncomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setIncome(parseInt(event.target.value, 10));
@@ -71,7 +78,7 @@ const App = () => {
 
   const amounts = bracketSet.map((bracket, index) => {
     const nextBracket = bracketSet[index + 1];
-    const amount = getAmount(income, bracket.joint, nextBracket && nextBracket.joint);
+    const amount = getAmount(income, bracket[filingType], nextBracket && nextBracket[filingType]);
 
     taxTotal += amount * bracket.rate / 100;
     return amount;
@@ -79,7 +86,7 @@ const App = () => {
 
   return (
     <div style={{ width: "50%", margin: "10% 25%", textAlign: "center" }}>
-      <p>
+      <p style={{ display: "flex", justifyContent: "space-between" }}>
         <label htmlFor="year">
           Year
           <select id="year" name="year" onChange={onBracketSetKeyChange} value={bracketSetKey}>
@@ -88,8 +95,14 @@ const App = () => {
             ))}
           </select>
         </label>
-      </p>
-      <p>
+        <label htmlFor="type">
+          Filing Type
+          <select id="type" name="type" onChange={onFilingTypeChange} value={filingType}>
+            <option value="single">Single</option>
+            <option value="joint">Married Filing Jointly</option>
+            <option value="heads">Heads of Households</option>
+          </select>
+        </label>
         <label htmlFor="income">
           Income
           <input
@@ -128,6 +141,7 @@ const App = () => {
               bracket={bracket}
               nextBracket={bracketSet[index + 1]}
               income={income}
+              filingType={filingType}
             />
           ))}
         </tbody>
