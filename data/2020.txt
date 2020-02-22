@@ -1,0 +1,13 @@
+Rate	For Single Individuals, Taxable Income Over	For Married Individuals Filing Joint Returns, Taxable Income Over	For Heads of Households, Taxable Income Over
+10%	$0	$0	$0
+12%	$9,875	$19,750	$14,100
+22%	$40,125	$80,250	$53,700
+24%	$85,525	$171,050	$85,500
+32%	$163,300	$326,600	$163,300
+35%	$207,350	$414,700	$207,350
+37%	$518,400	$622,050	$518,400
+
+Filing Status	Deduction Amount
+Single	$12,400
+Married Filing Jointly	$24,800
+Head of Household	$18,650

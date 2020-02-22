@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-import bracketSets, { Bracket, BracketSet } from "./bracketSets";
+import bracketSets from "./bracketSets.json";
+
+type BracketSets = typeof import("./bracketSets.json");
+type BracketSetKey = keyof BracketSets;
+
+type Bracket = BracketSets extends ({ [key: string]: (infer U)[] }) ? U : never;
 
 type IncomeButtonProps = {
   value: number;
@@ -59,10 +64,10 @@ type SegmentProps = {
 const Segment: React.FC<SegmentProps> = ({ amount, bracket, nextBracket, income }) => (
   <tr>
     <td>
-      <Amount amount={bracket.min} />
+      <Amount amount={bracket.joint} />
     </td>
     <td>
-      {nextBracket && <Amount amount={nextBracket.min} />}
+      {nextBracket && <Amount amount={nextBracket.joint} />}
     </td>
     <td>{bracket.rate}%</td>
     <td>
@@ -75,9 +80,9 @@ const Segment: React.FC<SegmentProps> = ({ amount, bracket, nextBracket, income 
 );
 
 const App = () => {
-  const [bracketSet, setBracketSet] = useState<string>("2013");
-  const onBracketSetChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setBracketSet(event.target.value);
+  const [bracketSetKey, setBracketSetKey] = useState<BracketSetKey>("2020");
+  const onBracketSetKeyChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setBracketSetKey(event.target.value as BracketSetKey);
   };
 
   const [income, setIncome] = useState<number>(100000);
@@ -86,9 +91,11 @@ const App = () => {
   };
 
   let taxTotal = 0;
-  const amounts = bracketSets[bracketSet].map((bracket, index, brackets) => {
-    const nextBracket = brackets[index + 1];
-    const amount = getAmount(income, bracket.min, nextBracket && nextBracket.min);
+  const bracketSet = bracketSets[bracketSetKey];
+
+  const amounts = bracketSet.map((bracket, index) => {
+    const nextBracket = bracketSet[index + 1];
+    const amount = getAmount(income, bracket.joint, nextBracket && nextBracket.joint);
 
     taxTotal += amount * bracket.rate / 100;
     return amount;
@@ -99,9 +106,9 @@ const App = () => {
       <p>
         <label htmlFor="year">
           Year
-          <select id="year" name="year" onChange={onBracketSetChange} value={bracketSet}>
-            {Object.keys(bracketSets).map(bracketSet => (
-              <option key={bracketSet} value={bracketSet}>{bracketSet}</option>
+          <select id="year" name="year" onChange={onBracketSetKeyChange} value={bracketSetKey}>
+            {Object.keys(bracketSets).map(key => (
+              <option key={key} value={key}>{key}</option>
             ))}
           </select>
         </label>
@@ -138,12 +145,12 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-          {bracketSets[bracketSet].map((bracket, index, brackets) => (
+          {bracketSet.map((bracket, index) => (
             <Segment
-              key={bracket.min}
+              key={bracket.rate}
               amount={amounts[index]}
               bracket={bracket}
-              nextBracket={brackets[index + 1]}
+              nextBracket={bracketSet[index + 1]}
               income={income}
             />
           ))}
