@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 import bracketSets from "./bracketSets.json";
+import Money from "./Money";
 
 type BracketSets = typeof import("./bracketSets.json");
 type BracketSetKey = keyof BracketSets;
@@ -29,31 +30,6 @@ const getAmount = (income: number, min: number, max?: number) => {
   return max - min;
 };
 
-type AmountProps = {
-  amount: number;
-};
-
-const Amount: React.FC<AmountProps> = ({ amount }) => {
-  const [dollars, cents] = amount.toFixed(2).split(".");
-  let formatted = dollars;
-
-  if (formatted.length > 3) {
-    const separated: string[] = [];
-
-    formatted.split("").reverse().forEach((digit, index) => {
-      if (index > 0 && index % 3 === 0) {
-        separated.push(",")
-      }
-
-      separated.push(digit);
-    });
-
-    formatted = separated.reverse().join("");
-  }
-
-  return <>${formatted}.{cents}</>;
-};
-
 type SegmentProps = {
   amount: number;
   bracket: Bracket;
@@ -64,17 +40,17 @@ type SegmentProps = {
 const Segment: React.FC<SegmentProps> = ({ amount, bracket, nextBracket, income }) => (
   <tr>
     <td>
-      <Amount amount={bracket.joint} />
+      <Money amount={bracket.joint} />
     </td>
     <td>
-      {nextBracket && <Amount amount={nextBracket.joint} />}
+      {nextBracket && <Money amount={nextBracket.joint} />}
     </td>
     <td>{bracket.rate}%</td>
     <td>
-      <Amount amount={amount} />
+      <Money amount={amount} />
     </td>
     <td>
-      <Amount amount={amount * bracket.rate / 100} />
+      <Money amount={amount * bracket.rate / 100} />
     </td>
   </tr>
 );
@@ -157,7 +133,7 @@ const App = () => {
         </tbody>
       </table>
       <p>
-        <strong>Total:</strong> <Amount amount={taxTotal} />
+        <strong>Total:</strong> <Money amount={taxTotal} />
       </p>
       <p>
         <strong>Effective Rate:</strong> {(taxTotal / income * 100).toFixed(2)}%
