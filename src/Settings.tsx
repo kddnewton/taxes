@@ -44,7 +44,7 @@ const Settings: React.FC<SettingsProps> = ({
   };
 
   return (
-    <p style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <label htmlFor="year">
         Year
         <select id="year" name="year" onChange={handleBracketSetsKeyChange} value={bracketSetsKey}>
@@ -80,7 +80,7 @@ const Settings: React.FC<SettingsProps> = ({
           1M
         </IncomeButton>
       </p>
-    </p>
+    </div>
   );
 };
 
