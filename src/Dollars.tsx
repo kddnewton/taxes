@@ -20,7 +20,7 @@ const formatDollars = (dollars: string) => {
 const formatAmount = (amount: number) => {
   const [dollars, cents] = amount.toFixed(2).split(".");
 
-  return `${formatDollars(dollars)}.${cents}`;
+  return `$${formatDollars(dollars)}.${cents}`;
 };
 
 type DollarProps = {
