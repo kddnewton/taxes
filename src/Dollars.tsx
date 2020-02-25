@@ -1,6 +1,6 @@
 import React from "react";
 
-const getFormattedDollars = (dollars: string) => {
+const formatDollars = (dollars: string) => {
   if (dollars.length <= 3) {
     return dollars;
   }
@@ -17,14 +17,18 @@ const getFormattedDollars = (dollars: string) => {
   return separated.reverse().join("");
 };
 
-type MoneyProps = {
+const formatAmount = (amount: number) => {
+  const [dollars, cents] = amount.toFixed(2).split(".");
+
+  return `${formatDollars(dollars)}.${cents}`;
+};
+
+type DollarProps = {
   amount: number;
 };
 
-const Money: React.FC<MoneyProps> = ({ amount }) => {
-  const [dollars, cents] = amount.toFixed(2).split(".");
+const Dollars: React.FC<DollarProps> = ({ amount }) => (
+  <>{formatAmount(amount)}</>
+);
 
-  return <>${getFormattedDollars(dollars)}.{cents}</>;
-};
-
-export default Money;
+export default Dollars;

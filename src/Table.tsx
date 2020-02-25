@@ -1,6 +1,6 @@
 import React from "react";
 
-import Money from "./Money";
+import Dollars from "./Dollars";
 import { Bracket, BracketSet, FilingType } from "./typings";
 
 type Segment = {
@@ -43,17 +43,17 @@ const makeSegments = ({ bracketSet, filingType, income }: TableProps): Segment[]
 const TableRow: React.FC<Segment> = ({ minimum, maximum, rate, bracketTotal, taxTotal }) => (
   <tr>
     <td>
-      <Money amount={minimum} />
+      <Dollars amount={minimum} />
     </td>
     <td>
-      {maximum && <Money amount={maximum} />}
+      {maximum && <Dollars amount={maximum} />}
     </td>
     <td>{rate}%</td>
     <td>
-      <Money amount={bracketTotal} />
+      <Dollars amount={bracketTotal} />
     </td>
     <td>
-      <Money amount={taxTotal} />
+      <Dollars amount={taxTotal} />
     </td>
   </tr>
 );
@@ -91,7 +91,7 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
         </tbody>
       </table>
       <p>
-        <strong>Total:</strong> <Money amount={taxTotal} />
+        <strong>Total:</strong> <Dollars amount={taxTotal} />
       </p>
       <p>
         <strong>Effective Rate:</strong> {(taxTotal / income * 100).toFixed(2)}%
