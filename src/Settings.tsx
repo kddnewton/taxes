@@ -46,7 +46,7 @@ const Settings: React.FC<SettingsProps> = ({
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <label htmlFor="year">
-        Year
+        Fiscal Year
         <select id="year" name="year" onChange={handleBracketSetsKeyChange} value={bracketSetsKey}>
           {Object.keys(bracketSets).map(key => (
             <option key={key} value={key}>{key}</option>
