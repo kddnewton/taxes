@@ -40,20 +40,24 @@ const makeSegments = ({ bracketSet, filingType, income }: TableProps): Segment[]
   })
 );
 
-const TableRow: React.FC<Segment> = ({ minimum, maximum, rate, bracketTotal, taxTotal }) => (
+type TableRowProps = {
+  segment: Segment;
+};
+
+const TableRow: React.FC<TableRowProps> = ({ segment }) => (
   <tr>
     <td>
-      <Dollars amount={minimum} />
+      <Dollars amount={segment.minimum} />
     </td>
     <td>
-      {maximum && <Dollars amount={maximum} />}
+      {segment.maximum && <Dollars amount={segment.maximum} />}
     </td>
-    <td>{rate}%</td>
+    <td>{segment.rate}%</td>
     <td>
-      <Dollars amount={bracketTotal} />
+      <Dollars amount={segment.bracketTotal} />
     </td>
     <td>
-      <Dollars amount={taxTotal} />
+      <Dollars amount={segment.taxTotal} />
     </td>
   </tr>
 );
@@ -86,7 +90,7 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
         </thead>
         <tbody>
           {segments.map(segment => (
-            <TableRow key={segment.rate} {...segment} />
+            <TableRow key={segment.rate} segment={segment} />
           ))}
         </tbody>
       </table>
