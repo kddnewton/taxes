@@ -14,7 +14,6 @@ const App: React.FC = () => {
   return (
     <div className="container">
       <h1>US Federal Income Taxes</h1>
-      <Gutter />
       <Settings
         bracketSetsKey={bracketSetsKey}
         filingType={filingType}
