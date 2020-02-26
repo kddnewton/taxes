@@ -43,7 +43,7 @@ const Settings: React.FC<SettingsProps> = ({
         <Select<BracketSetsKey>
           id="year"
           name="year"
-          className="form-control"
+          className="control"
           onChange={onBracketSetsKeyChange}
           options={Object.keys(bracketSets).map(value => ({
             label: value,
@@ -57,7 +57,7 @@ const Settings: React.FC<SettingsProps> = ({
         <Select<FilingType>
           id="type"
           name="type"
-          className="form-control"
+          className="control"
           onChange={onFilingTypeChange}
           options={[
             { label: "Single", value: "single" },
@@ -70,7 +70,7 @@ const Settings: React.FC<SettingsProps> = ({
       <label htmlFor="income">
         Income
         <input
-          className="form-control"
+          className="control"
           type="number"
           id="income"
           name="income"

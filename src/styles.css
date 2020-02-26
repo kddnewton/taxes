@@ -46,6 +46,10 @@ body {
   vertical-align: bottom;
 }
 
+.table tr.disabled {
+  color: #aaa;
+}
+
 .table td {
   border-top: 1px solid #e0e0e0;
   font-family: "Courier New", Courier, monospace;
@@ -60,7 +64,7 @@ body {
   border-top-color: #ccc;
 }
 
-.form-control {
+.control {
   border: 0;
   border-bottom: 2px solid #eaeaea;
   border-top-left-radius: 4px;
@@ -77,10 +81,10 @@ body {
   width: 100%;
 }
 
-.form-control:focus {
+.control:focus {
   border-bottom-color: #79b17d;
 }
 
-.form-control:focus, .form-control:hover {
+.control:focus, .control:hover {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
