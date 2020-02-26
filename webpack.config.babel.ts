@@ -11,7 +11,8 @@ export default {
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, use: "awesome-typescript-loader" }
+      { test: /\.tsx?$/, use: "awesome-typescript-loader" },
+      { test: /\.css$/, use: ["style-loader", "css-loader"] }
     ]
   },
   devServer: {

@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const [income, setIncome] = useState<number>(100000);
 
   return (
-    <div style={{ width: "50%", margin: "10% 25%", textAlign: "center" }}>
+    <div className="container">
       <Settings
         bracketSetsKey={bracketSetsKey}
         filingType={filingType}

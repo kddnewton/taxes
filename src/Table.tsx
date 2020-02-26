@@ -77,30 +77,34 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
   });
 
   return (
-    <>
-      <table style={{ width: "100%" }}>
-        <thead>
-          <tr>
-            <th>Bottom</th>
-            <th>Top</th>
-            <th>Rate</th>
-            <th>Bracket Total</th>
-            <th>Bracket Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          {segments.map(segment => (
-            <TableRow key={segment.rate} segment={segment} />
-          ))}
-        </tbody>
-      </table>
-      <p>
-        <strong>Total:</strong> <Dollars amount={taxTotal} />
-      </p>
-      <p>
-        <strong>Effective Rate:</strong> {(taxTotal / income * 100).toFixed(2)}%
-      </p>
-    </>
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Bottom</th>
+          <th>Top</th>
+          <th>Rate</th>
+          <th>Bracket Total</th>
+          <th>Bracket Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        {segments.map(segment => (
+          <TableRow key={segment.rate} segment={segment} />
+        ))}
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colSpan={2} />
+          <td>
+            {(taxTotal / income * 100).toFixed(2)}%
+          </td>
+          <td />
+          <td>
+            <Dollars amount={taxTotal} />
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   );
 };
 

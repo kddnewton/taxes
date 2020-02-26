@@ -47,7 +47,7 @@ const Settings: React.FC<SettingsProps> = ({
     <div style={{ display: "flex", flexDirection: "column" }}>
       <label htmlFor="year">
         Fiscal Year
-        <select id="year" name="year" onChange={handleBracketSetsKeyChange} value={bracketSetsKey}>
+        <select id="year" name="year" className="form-control" onChange={handleBracketSetsKeyChange} value={bracketSetsKey}>
           {Object.keys(bracketSets).map(key => (
             <option key={key} value={key}>{key}</option>
           ))}
@@ -55,7 +55,7 @@ const Settings: React.FC<SettingsProps> = ({
       </label>
       <label htmlFor="type">
         Filing Type
-        <select id="type" name="type" onChange={handleFilingTypeChange} value={filingType}>
+        <select id="type" name="type" className="form-control" onChange={handleFilingTypeChange} value={filingType}>
           <option value="single">Single</option>
           <option value="joint">Married Filing Jointly</option>
           <option value="heads">Heads of Households</option>
@@ -64,6 +64,7 @@ const Settings: React.FC<SettingsProps> = ({
       <label htmlFor="income">
         Income
         <input
+          className="form-control"
           type="number"
           id="income"
           name="income"
