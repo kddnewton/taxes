@@ -1,6 +1,7 @@
 import React from "react";
 
 import Dollars from "./Dollars";
+import Tooltip from "./Tooltip";
 import { Bracket, BracketSet, FilingType } from "./typings";
 
 type Segment = {
@@ -64,7 +65,12 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
       <td>
         <Dollars amount={segment.total} />
       </td>
-      <td>{segment.rate}%</td>
+      <td>
+        <Tooltip>
+          <Tooltip.Trigger>{segment.rate}%</Tooltip.Trigger>
+          <Tooltip.Content>The rate of this bracket.</Tooltip.Content>
+        </Tooltip>
+      </td>
       <td>
         <Dollars amount={segment.amount} />
       </td>
