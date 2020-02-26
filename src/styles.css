@@ -6,8 +6,8 @@ body {
 }
 
 .container {
-  margin: 40px 20%;
-  width: 60%;
+  margin: 40px 15%;
+  width: 70%;
 }
 
 @media screen and (max-width: 1200px) {
@@ -24,6 +24,15 @@ body {
     margin-right: 5%;
     width: 90%;
   }
+}
+
+.monospace {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .table {
@@ -52,7 +61,6 @@ body {
 
 .table td {
   border-top: 1px solid #e0e0e0;
-  font-family: "Courier New", Courier, monospace;
   padding: 8px;
   text-align: right;
   vertical-align: top;
@@ -62,6 +70,10 @@ body {
 .table tfoot tr:first-child td {
   border-top-width: 2px;
   border-top-color: #ccc;
+}
+
+.label + .label {
+  margin-top: 20px;
 }
 
 .control {

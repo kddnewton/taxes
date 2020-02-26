@@ -37,8 +37,8 @@ const Settings: React.FC<SettingsProps> = ({
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <label htmlFor="year">
+    <div className="flex-column">
+      <label className="label" htmlFor="year">
         Fiscal Year
         <Select<BracketSetsKey>
           id="year"
@@ -52,7 +52,7 @@ const Settings: React.FC<SettingsProps> = ({
           value={bracketSetsKey}
         />
       </label>
-      <label htmlFor="type">
+      <label className="label" htmlFor="type">
         Filing Type
         <Select<FilingType>
           id="type"
@@ -67,10 +67,10 @@ const Settings: React.FC<SettingsProps> = ({
           value={filingType}
         />
       </label>
-      <label htmlFor="income">
+      <label className="label" htmlFor="income">
         Income
         <input
-          className="control"
+          className="control monospace"
           type="number"
           id="income"
           name="income"
