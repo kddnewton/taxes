@@ -53,10 +53,6 @@ body {
   width: 100%;
 }
 
-.table tbody tr:hover {
-  background-color: #eee;
-}
-
 .table th {
   padding: 8px;
   text-align: center;
@@ -65,6 +61,11 @@ body {
 
 .table tr.bordered td {
   border-top: 1px solid #e0e0e0;
+}
+
+.table tbody tr.bordered:hover,
+.table tbody tr.bordered:hover + tr {
+  background-color: #eee;
 }
 
 .table tr.progress td {
