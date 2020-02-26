@@ -19,8 +19,9 @@ const formatDollars = (dollars: string) => {
 
 const formatAmount = (amount: number) => {
   const [dollars, cents] = amount.toFixed(2).split(".");
+  const formatted = formatDollars(dollars);
 
-  return `$${formatDollars(dollars)}.${cents}`;
+  return cents == "00" ? `$${formatted}` : `$${formatted}.${cents}`;
 };
 
 type DollarProps = {
