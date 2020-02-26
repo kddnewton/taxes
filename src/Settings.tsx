@@ -1,6 +1,7 @@
 import React from "react";
 
 import bracketSets from "./bracketSets.json";
+import Gutter from "./Gutter";
 import Select from "./Select";
 import { BracketSetsKey, FilingType } from "./typings";
 
@@ -38,7 +39,7 @@ const Settings: React.FC<SettingsProps> = ({
 
   return (
     <div className="flex-column">
-      <label className="label" htmlFor="year">
+      <label htmlFor="year">
         Fiscal Year
         <Select<BracketSetsKey>
           id="year"
@@ -52,7 +53,8 @@ const Settings: React.FC<SettingsProps> = ({
           value={bracketSetsKey}
         />
       </label>
-      <label className="label" htmlFor="type">
+      <Gutter />
+      <label htmlFor="type">
         Filing Type
         <Select<FilingType>
           id="type"
@@ -67,7 +69,8 @@ const Settings: React.FC<SettingsProps> = ({
           value={filingType}
         />
       </label>
-      <label className="label" htmlFor="income">
+      <Gutter />
+      <label htmlFor="income">
         Income
         <input
           className="control monospace"
@@ -78,7 +81,7 @@ const Settings: React.FC<SettingsProps> = ({
           value={income}
         />
       </label>
-      <p>
+      <div className="shortcuts">
         <IncomeButton value={50000} onClick={onIncomeChange} />
         <IncomeButton value={100000} onClick={onIncomeChange} />
         <IncomeButton value={250000} onClick={onIncomeChange} />
@@ -86,7 +89,7 @@ const Settings: React.FC<SettingsProps> = ({
         <IncomeButton value={1000000} onClick={onIncomeChange}>
           1M
         </IncomeButton>
-      </p>
+      </div>
     </div>
   );
 };

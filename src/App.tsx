@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import bracketSets from "./bracketSets.json";
+import Gutter from "./Gutter";
 import Settings from "./Settings";
 import Table from "./Table";
 import { BracketSetsKey, FilingType } from "./typings";
@@ -20,6 +21,7 @@ const App: React.FC = () => {
         onFilingTypeChange={setFilingType}
         onIncomeChange={setIncome}
       />
+      <Gutter />
       <Table
         bracketSet={bracketSets[bracketSetsKey]}
         filingType={filingType}
