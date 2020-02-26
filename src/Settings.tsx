@@ -79,6 +79,7 @@ const Settings: React.FC<SettingsProps> = ({
           name="income"
           onChange={handleIncomeChange}
           value={income}
+          min={0}
           step={1000}
         />
       </label>
