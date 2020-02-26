@@ -84,6 +84,7 @@ const Settings: React.FC<SettingsProps> = ({
         />
       </label>
       <div className="shortcuts">
+        <IncomeButton value={25000} onClick={onIncomeChange} />
         <IncomeButton value={50000} onClick={onIncomeChange} />
         <IncomeButton value={100000} onClick={onIncomeChange} />
         <IncomeButton value={250000} onClick={onIncomeChange} />

@@ -54,7 +54,7 @@ type TableRowProps = {
 
 const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
   <>
-    <tr className={income < segment.minimum ? "bordered disabled" : "bordered"}>
+    <tr className={income <= segment.minimum ? "bordered disabled" : "bordered"}>
       <td>
         <Dollars amount={segment.minimum} />
       </td>
