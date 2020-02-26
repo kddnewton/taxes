@@ -71,7 +71,10 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
     </tr>
     <tr className="progress">
       <td colSpan={5}>
-        <div style={{ width: `${segment.percent}%` }} />
+        <div
+          data-percent={segment.percent}
+          style={{ width: `${segment.percent}%` }}
+        />
       </td>
     </tr>
   </>

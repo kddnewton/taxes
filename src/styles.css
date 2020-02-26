@@ -73,9 +73,13 @@ body {
 }
 
 .table tr.progress div {
-  background-color: #79b17d;
+  background-color: #8cb4d6;
   height: 3px;
   transition: width 150ms;
+}
+
+.table tr.progress div[data-percent='100'] {
+  background-color: #79b17d;
 }
 
 .table tr.disabled {
