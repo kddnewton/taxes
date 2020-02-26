@@ -63,12 +63,24 @@ body {
   vertical-align: bottom;
 }
 
+.table tr.bordered td {
+  border-top: 1px solid #e0e0e0;
+}
+
+.table tr.progress td {
+  padding: 0;
+}
+
+.table tr.progress div {
+  background-color: #79b17d;
+  height: 2px;
+}
+
 .table tr.disabled {
   color: #ccc;
 }
 
 .table td {
-  border-top: 1px solid #e0e0e0;
   padding: 8px;
   text-align: right;
   vertical-align: top;
