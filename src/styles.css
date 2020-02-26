@@ -87,6 +87,12 @@ body {
   transition: width 150ms;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .table tr.progress div {
+    transition: none;
+  }
+}
+
 .table tr.progress div[data-percent='100'] {
   background-color: #79b17d;
 }
