@@ -74,7 +74,7 @@ const Settings: React.FC<SettingsProps> = ({
       <label htmlFor="income">
         Income
         <input
-          className="control monospace"
+          className="control"
           type="number"
           id="income"
           name="income"
