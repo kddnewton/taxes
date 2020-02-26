@@ -32,10 +32,6 @@ const Settings: React.FC<SettingsProps> = ({
   onFilingTypeChange,
   onIncomeChange
 }) => {
-  const handleBracketSetsKeyChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onBracketSetsKeyChange(event.target.value as BracketSetsKey);
-  };
-
   const handleIncomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onIncomeChange(parseInt(event.target.value, 10));
   };
@@ -44,11 +40,16 @@ const Settings: React.FC<SettingsProps> = ({
     <div style={{ display: "flex", flexDirection: "column" }}>
       <label htmlFor="year">
         Fiscal Year
-        <select id="year" name="year" className="form-control" onChange={handleBracketSetsKeyChange} value={bracketSetsKey}>
-          {Object.keys(bracketSets).map(key => (
-            <option key={key} value={key}>{key}</option>
-          ))}
-        </select>
+        <Select<BracketSetsKey>
+          id="year"
+          name="year"
+          className="form-control"
+          onChange={onBracketSetsKeyChange}
+          options={Object.keys(bracketSets).map(value => ({
+            label: value, value
+          }))}
+          value={bracketSetsKey}
+        />
       </label>
       <label htmlFor="type">
         Filing Type
