@@ -39,36 +39,37 @@ const Settings: React.FC<SettingsProps> = ({
 
   return (
     <div className="flex-column">
-      <label htmlFor="year">
-        Fiscal Year
-        <Select<BracketSetsKey>
-          id="year"
-          name="year"
-          className="control"
-          onChange={onBracketSetsKeyChange}
-          options={Object.keys(bracketSets).map(value => ({
-            label: value,
-            value: value as BracketSetsKey
-          }))}
-          value={bracketSetsKey}
-        />
-      </label>
-      <Gutter />
-      <label htmlFor="type">
-        Filing Type
-        <Select<FilingType>
-          id="type"
-          name="type"
-          className="control"
-          onChange={onFilingTypeChange}
-          options={[
-            { label: "Single", value: "single" },
-            { label: "Married Filing Jointly", value: "joint" },
-            { label: "Heads of Households", value: "heads" }
-          ]}
-          value={filingType}
-        />
-      </label>
+      <div className="flex-row">
+        <label htmlFor="year">
+          Fiscal Year
+          <Select<BracketSetsKey>
+            id="year"
+            name="year"
+            className="control"
+            onChange={onBracketSetsKeyChange}
+            options={Object.keys(bracketSets).map(value => ({
+              label: value,
+              value: value as BracketSetsKey
+            }))}
+            value={bracketSetsKey}
+          />
+        </label>
+        <label htmlFor="type">
+          Filing Type
+          <Select<FilingType>
+            id="type"
+            name="type"
+            className="control"
+            onChange={onFilingTypeChange}
+            options={[
+              { label: "Single", value: "single" },
+              { label: "Married Filing Jointly", value: "joint" },
+              { label: "Heads of Households", value: "heads" }
+            ]}
+            value={filingType}
+          />
+        </label>
+      </div>
       <Gutter />
       <label htmlFor="income">
         Income

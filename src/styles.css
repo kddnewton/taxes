@@ -28,7 +28,7 @@ body {
 }
 
 .gutter {
-  height: 1.4em;
+  height: 1em;
 }
 
 .monospace {
@@ -38,6 +38,15 @@ body {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-row label {
+  width: calc(50% - 0.5em);
 }
 
 .table {
@@ -100,14 +109,19 @@ body {
 }
 
 .control {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
   border: 0;
   border-bottom: 2px solid #eaeaea;
+  border-radius: 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   box-sizing: border-box;
   display: block;
   font-size: 1em;
   font-weight: 200;
+  margin-top: 0.2em;
   min-height: 42px;
   outline: none;
   padding: 6px 12px;
