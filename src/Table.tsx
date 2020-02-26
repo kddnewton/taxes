@@ -68,7 +68,10 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
       <td>
         <Tooltip>
           <Tooltip.Trigger>{segment.rate}%</Tooltip.Trigger>
-          <Tooltip.Content>The rate of this bracket.</Tooltip.Content>
+          <Tooltip.Content>
+            The rate of this tax bracket. Income earned above the bottom and
+            below the top of this bracket will be taxed at this rate.
+          </Tooltip.Content>
         </Tooltip>
       </td>
       <td>

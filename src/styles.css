@@ -203,6 +203,7 @@ h1 {
   border: #aaa solid 1px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
   font-size: 0.95em;
+  max-width: 300px;
   padding: 5px 10px;
   position: absolute;
 }
