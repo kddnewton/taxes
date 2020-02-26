@@ -73,7 +73,7 @@ body {
 
 .table tr.progress div {
   background-color: #79b17d;
-  height: 2px;
+  height: 3px;
 }
 
 .table tr.disabled {
