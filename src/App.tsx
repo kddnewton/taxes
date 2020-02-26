@@ -24,6 +24,7 @@ const App: React.FC = () => {
         onIncomeChange={setIncome}
       />
       <Gutter />
+      <Gutter />
       <Table
         bracketSet={bracketSets[bracketSetsKey]}
         filingType={filingType}
