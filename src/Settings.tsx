@@ -46,7 +46,8 @@ const Settings: React.FC<SettingsProps> = ({
           className="form-control"
           onChange={onBracketSetsKeyChange}
           options={Object.keys(bracketSets).map(value => ({
-            label: value, value
+            label: value,
+            value: value as BracketSetsKey
           }))}
           value={bracketSetsKey}
         />

@@ -42,14 +42,15 @@ body {
 
 .table th {
   padding: 8px;
-  text-align: left;
+  text-align: center;
   vertical-align: bottom;
 }
 
 .table td {
   border-top: 1px solid #e0e0e0;
+  font-family: "Courier New", Courier, monospace;
   padding: 8px;
-  text-align: left;
+  text-align: right;
   vertical-align: top;
 }
 
