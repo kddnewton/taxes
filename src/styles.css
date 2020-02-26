@@ -7,22 +7,30 @@ body {
 }
 
 .container {
-  margin: 40px 15%;
-  width: 70%;
+  margin: 40px auto;
+  width: 50%;
+}
+
+@media screen and (max-width: 1600px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    width: 70%;
+  }
 }
 
 @media screen and (max-width: 1200px) {
   .container {
-    margin-left: 10%;
-    margin-right: 10%;
     width: 80%;
   }
 }
 
 @media screen and (max-width: 800px) {
   .container {
-    margin-left: 5%;
-    margin-right: 5%;
     width: 90%;
   }
 }
