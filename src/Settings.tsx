@@ -1,6 +1,7 @@
 import React from "react";
 
 import bracketSets from "./bracketSets.json";
+import Select from "./Select";
 import { BracketSetsKey, FilingType } from "./typings";
 
 type IncomeButtonProps = {
@@ -35,10 +36,6 @@ const Settings: React.FC<SettingsProps> = ({
     onBracketSetsKeyChange(event.target.value as BracketSetsKey);
   };
 
-  const handleFilingTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onFilingTypeChange(event.target.value as FilingType);
-  };
-
   const handleIncomeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onIncomeChange(parseInt(event.target.value, 10));
   };
@@ -55,11 +52,18 @@ const Settings: React.FC<SettingsProps> = ({
       </label>
       <label htmlFor="type">
         Filing Type
-        <select id="type" name="type" className="form-control" onChange={handleFilingTypeChange} value={filingType}>
-          <option value="single">Single</option>
-          <option value="joint">Married Filing Jointly</option>
-          <option value="heads">Heads of Households</option>
-        </select>
+        <Select<FilingType>
+          id="type"
+          name="type"
+          className="form-control"
+          onChange={onFilingTypeChange}
+          options={[
+            { label: "Single", value: "single" },
+            { label: "Married Filing Jointly", value: "joint" },
+            { label: "Heads of Households", value: "heads" }
+          ]}
+          value={filingType}
+        />
       </label>
       <label htmlFor="income">
         Income
