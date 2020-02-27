@@ -19,7 +19,8 @@ body {
   width: 100%;
 }
 
-.table tbody, .table tfoot {
+.table tbody,
+.table tfoot {
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -28,6 +29,13 @@ body {
   padding: 8px;
   text-align: center;
   vertical-align: bottom;
+}
+
+.table td {
+  padding: 8px;
+  text-align: right;
+  vertical-align: top;
+  width: 20%;
 }
 
 .table tr.bordered td {
@@ -45,13 +53,6 @@ body {
 
 .table tr.disabled {
   color: #ccc;
-}
-
-.table td {
-  padding: 8px;
-  text-align: right;
-  vertical-align: top;
-  width: 20%;
 }
 
 .table tbody tr:first-child td,

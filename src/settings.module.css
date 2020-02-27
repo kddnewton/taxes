@@ -22,12 +22,12 @@
   width: 5em;
 }
 
-.shortcuts button:focus {
-  z-index: 1;
-}
-
 .shortcuts button + button {
   margin-left: -1px;
+}
+
+.shortcuts button:focus {
+  z-index: 1;
 }
 
 .shortcuts button:first-child {
