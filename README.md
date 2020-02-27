@@ -6,8 +6,9 @@ A small web application for understanding how the US federal income tax system w
 
 Ensure you have `yarn` installed. In the root of the directory run `yarn` to install all dependencies. There are some configured `yarn` scripts to get development started:
 
-* `yarn lint` - Lint the code with `eslint`
+* `yarn lint` - Lint the code with `eslint` and `stylelint`
 * `yarn start` - Start a local dev server with `webpack-dev-server`
+* `yarn test` - Test the code with `jest`
 
 ## Contributing
 

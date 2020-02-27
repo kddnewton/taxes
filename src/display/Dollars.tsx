@@ -17,7 +17,7 @@ const formatDollars = (dollars: string) => {
   return separated.reverse().join("");
 };
 
-const formatAmount = (amount: number) => {
+export const formatAmount = (amount: number) => {
   const [dollars, cents] = amount.toFixed(2).split(".");
   const formatted = formatDollars(dollars);
 
