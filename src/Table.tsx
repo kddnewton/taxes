@@ -160,12 +160,12 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody className="monospace">
+        <tbody>
           {segments.map(segment => (
             <TableRow key={segment.rate} income={income} segment={segment} />
           ))}
         </tbody>
-        <tfoot className="monospace">
+        <tfoot>
           <tr className="bordered">
             <td colSpan={3} />
             <td>

@@ -6,10 +6,6 @@ body {
   margin: 0;
 }
 
-.monospace {
-  font-family: "Courier New", Courier, monospace;
-}
-
 .table {
   max-width: 100%;
   overflow-x: auto;
@@ -21,6 +17,10 @@ body {
   border-spacing: 0;
   box-sizing: border-box;
   width: 100%;
+}
+
+.table tbody, .table tfoot {
+  font-family: "Courier New", Courier, monospace;
 }
 
 .table th {
