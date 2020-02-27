@@ -1,6 +1,10 @@
 import path from "path";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default {
+  plugins: [
+    new MiniCssExtractPlugin()
+  ],
   output: {
     path: path.join(__dirname, "docs"),
     filename: "main.js"
@@ -15,7 +19,7 @@ export default {
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
             options: {
@@ -28,7 +32,7 @@ export default {
       {
         test: /\.css$/,
         use: [
-          "style-loader",
+          MiniCssExtractPlugin.loader,
           "css-loader"
         ],
         exclude: /\.module\.css$/

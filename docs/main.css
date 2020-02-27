@@ -1,0 +1,222 @@
+.rhU82J9Mu7TetNESV6CEl {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  border: 0;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 1em;
+  font-weight: 200;
+  margin-top: 0.2em;
+  min-height: 42px;
+  outline: none;
+  padding: 6px 12px;
+  text-align: left;
+  transition: border-bottom .3s;
+  width: 100%;
+}
+
+.rhU82J9Mu7TetNESV6CEl:focus {
+  border-bottom-color: #79b17d;
+}
+
+.rhU82J9Mu7TetNESV6CEl:focus,
+.rhU82J9Mu7TetNESV6CEl:hover {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+._189r2eIvfXOMcBbHysIC_n {
+  display: flex;
+  justify-content: space-between;
+}
+
+._189r2eIvfXOMcBbHysIC_n label {
+  width: calc(50% - 0.5em);
+}
+
+.ItZnsX3UFvJFX3trMUQJa {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+}
+
+.ItZnsX3UFvJFX3trMUQJa button {
+  background-color: white;
+  border: #aaa solid 1px;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 1em;
+  width: 5em;
+}
+
+.ItZnsX3UFvJFX3trMUQJa button:focus {
+  z-index: 1;
+}
+
+.ItZnsX3UFvJFX3trMUQJa button + button {
+  margin-left: -1px;
+}
+
+.ItZnsX3UFvJFX3trMUQJa button:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.ItZnsX3UFvJFX3trMUQJa button:last-child {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+._1FqvI8aZiV_01QibCH9Qsd {
+  background-color: #8cb4d6;
+  height: 3px;
+  transition: width 150ms;
+}
+
+._1FqvI8aZiV_01QibCH9Qsd[aria-valuenow='100'] {
+  background-color: #79b17d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ._1FqvI8aZiV_01QibCH9Qsd {
+    transition: none;
+  }
+}
+
+.-wgH6Zd8Ax6JgSOVL3-DU {
+  background-color: white;
+  border-radius: 4px;
+  border: #aaa solid 1px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  font-size: 0.95em;
+  max-width: 300px;
+  padding: 5px 10px;
+  position: absolute;
+}
+
+.-wgH6Zd8Ax6JgSOVL3-DU::before,
+.-wgH6Zd8Ax6JgSOVL3-DU::after {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid white;
+  content: " ";
+  position: absolute;
+  left: 11px;
+  top: -10px;
+}
+
+.-wgH6Zd8Ax6JgSOVL3-DU::before {
+  border-left-width: 9px;
+  border-right-width: 9px;
+  border-bottom-color: #aaa;
+  border-bottom-width: 11px;
+  left: 10px;
+  top: -11px;
+}
+
+._2ZKutxy3m1Zf4-SDMh8bsV {
+  margin: 40px auto;
+  width: 50%;
+}
+
+@media screen and (max-width: 1600px) {
+  ._2ZKutxy3m1Zf4-SDMh8bsV {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  ._2ZKutxy3m1Zf4-SDMh8bsV {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  ._2ZKutxy3m1Zf4-SDMh8bsV {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  ._2ZKutxy3m1Zf4-SDMh8bsV {
+    width: 90%;
+  }
+}
+
+._17lBmiHhHCRQOx0hABfS0U {
+  font-weight: inherit;
+  line-height: 1em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+body {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4em;
+  margin: 0;
+}
+
+.table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.table tbody, .table tfoot {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.table th {
+  font-weight: inherit;
+  padding: 8px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.table tr.bordered td {
+  border-top: 1px solid #e0e0e0;
+}
+
+.table tbody tr.bordered:hover,
+.table tbody tr.bordered:hover + tr {
+  background-color: #eee;
+}
+
+.table tr.progress td {
+  padding: 0;
+}
+
+.table tr.disabled {
+  color: #ccc;
+}
+
+.table td {
+  padding: 8px;
+  text-align: right;
+  vertical-align: top;
+  width: 20%;
+}
+
+.table tbody tr:first-child td,
+.table tfoot tr:first-child td {
+  border-top-width: 2px;
+  border-top-color: #ccc;
+}
+
+.table tfoot {
+  font-weight: bold;
+}
+
