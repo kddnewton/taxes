@@ -11,10 +11,10 @@ type TooltipContextState = {
 
 const TooltipContext = React.createContext<TooltipContextState>({
   onEnter: () => {
-    throw new Error("Tooltip child component rendered outside TooltipContext");
+    // do nothing
   },
   onLeave: () => {
-    throw new Error("Tooltip child component rendered outside TooltipContext");
+    // do nothing
   },
   position: null
 });
@@ -27,10 +27,8 @@ const Tooltip = ({ children }: { children: React.ReactNode }) => {
   const value = useMemo(
     () => ({
       onEnter: (event: React.MouseEvent<HTMLElement>) => {
-        if (event.target instanceof HTMLElement) {
-          const { top } = event.target.getBoundingClientRect();
-          setPosition({ left: event.clientX - 20, top: top + window.scrollY + 30 });
-        }
+        const { top } = (event.target as HTMLElement).getBoundingClientRect();
+        setPosition({ left: event.clientX - 20, top: top + window.scrollY + 30 });
       },
       onLeave: () => {
         setPosition(null);
