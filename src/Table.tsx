@@ -3,7 +3,7 @@ import React from "react";
 import Dollars from "./display/Dollars";
 import ProgressBar from "./display/ProgressBar";
 import Tooltip from "./display/Tooltip";
-import { Bracket, BracketSet, FilingType } from "./typings";
+import { BracketSet, FilingType } from "./typings";
 
 type Segment = {
   minimum: number;
@@ -102,9 +102,9 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
             <Dollars amount={segment.amount} />
           </Tooltip.Trigger>
           <Tooltip.Content>
-            This is the total amount of taxes that you're paying for this tax
-            bracket. It is the result of multiplying the total amount of income
-            that falls within this bracket by the rate of this bracket.
+            This is the total amount of taxes that you&apos;re paying for this
+            tax bracket. It is the result of multiplying the total amount of
+            income that falls within this bracket by the rate of this bracket.
           </Tooltip.Content>
         </Tooltip>
       </td>
@@ -167,9 +167,9 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
                   {(amount / income * 100).toFixed(2)}%
                 </Tooltip.Trigger>
                 <Tooltip.Content>
-                  This is what is called your "effective rate". It is a result
-                  of dividing the total amount of taxes that you owe by your
-                  income. Another way of thinking about it is the weighted
+                  This is what is called your &quot;effective rate&quot;. It is
+                  a result of dividing the total amount of taxes that you owe by
+                  your income. Another way of thinking about it is the weighted
                   average of the rates of the tax brackets in which your income
                   falls.
                 </Tooltip.Content>

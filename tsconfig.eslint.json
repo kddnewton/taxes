@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src", "webpack.config.babel.ts"],
+  "exclude": []
+}

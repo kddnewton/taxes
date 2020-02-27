@@ -5,6 +5,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "compile": "tsc --noEmit",
+    "lint": "eslint . --cache --ext .js,.ts,.tsx",
     "start": "webpack-dev-server --mode development --hot"
   },
   "repository": {
@@ -29,10 +30,18 @@
     "@babel/register": "^7.8.3",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
     "dsv-loader": "^2.0.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-react-hooks": "^2.5.0",
     "style-loader": "^1.1.3",
     "typescript": "^3.5.3",
     "webpack": "^4.41.5",

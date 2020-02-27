@@ -10,8 +10,12 @@ type TooltipContextState = {
 };
 
 const TooltipContext = React.createContext<TooltipContextState>({
-  onEnter: () => {},
-  onLeave: () => {},
+  onEnter: () => {
+    throw new Error("Tooltip child component rendered outside TooltipContext");
+  },
+  onLeave: () => {
+    throw new Error("Tooltip child component rendered outside TooltipContext");
+  },
   position: null
 });
 
