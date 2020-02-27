@@ -11,7 +11,7 @@ import styles from "./container.module.css";
 const App: React.FC = () => {
   const [bracketSetsKey, setBracketSetsKey] = useState<BracketSetsKey>("2020");
   const [filingType, setFilingType] = useState<FilingType>("single");
-  const [income, setIncome] = useState<number>(100000);
+  const [income, setIncome] = useState<number>(50000);
 
   return (
     <div className={styles.container}>
