@@ -1,6 +1,7 @@
 import React from "react";
 
 import Dollars from "./display/Dollars";
+import ProgressBar from "./display/ProgressBar";
 import Tooltip from "./display/Tooltip";
 import { Bracket, BracketSet, FilingType } from "./typings";
 
@@ -119,11 +120,7 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
       <td colSpan={5}>
         <Tooltip>
           <Tooltip.Trigger as="div">
-            <div
-              className="bar"
-              data-percent={segment.percent}
-              style={{ width: `${segment.percent}%` }}
-            />
+            <ProgressBar value={segment.percent} />
           </Tooltip.Trigger>
           <Tooltip.Content>
             This represents the percentage of the above bracket that your income

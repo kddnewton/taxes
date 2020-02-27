@@ -1,0 +1,15 @@
+.progress {
+  background-color: #8cb4d6;
+  height: 3px;
+  transition: width 150ms;
+}
+
+.progress[aria-valuenow='100'] {
+  background-color: #79b17d;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress {
+    transition: none;
+  }
+}
