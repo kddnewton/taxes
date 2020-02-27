@@ -3,7 +3,7 @@ import React from "react";
 import bracketSets from "./bracketSets.json";
 import Gutter from "./display/Gutter";
 import NumberInput from "./display/NumberInput";
-import Select from "./display/Select";
+import SelectInput from "./display/SelectInput";
 import { BracketSetsKey, FilingType } from "./typings";
 
 type IncomeButtonProps = {
@@ -36,7 +36,7 @@ const Settings: React.FC<SettingsProps> = ({
 }) => (
   <div className="flex-column">
     <div className="flex-row">
-      <Select<BracketSetsKey>
+      <SelectInput<BracketSetsKey>
         name="year"
         onChange={onBracketSetsKeyChange}
         options={Object.keys(bracketSets).map(value => ({
@@ -46,8 +46,8 @@ const Settings: React.FC<SettingsProps> = ({
         value={bracketSetsKey}
       >
         Fiscal Year
-      </Select>
-      <Select<FilingType>
+      </SelectInput>
+      <SelectInput<FilingType>
         name="type"
         onChange={onFilingTypeChange}
         options={[
@@ -58,7 +58,7 @@ const Settings: React.FC<SettingsProps> = ({
         value={filingType}
       >
         Filing Type
-      </Select>
+      </SelectInput>
     </div>
     <Gutter />
     <NumberInput

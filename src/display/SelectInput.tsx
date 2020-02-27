@@ -7,13 +7,14 @@ type Option<T> = {
   value: T;
 };
 
-type SelectProps<T> = Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "className" | "onChange"> & {
+type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement>;
+type SelectInputProps<T> = Omit<SelectProps, "className" | "onChange"> & {
   onChange: (value: T) => void;
   options: Option<T>[];
   value: T;
 };
 
-const Select = <T extends any>({ children, name, onChange, options, value, ...props }: SelectProps<T>) => {
+const SelectInput = <T extends any>({ children, name, onChange, options, value, ...props }: SelectInputProps<T>) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(event.target.value as unknown as T);
   };
@@ -39,4 +40,4 @@ const Select = <T extends any>({ children, name, onChange, options, value, ...pr
   );
 };
 
-export default Select;
+export default SelectInput;
