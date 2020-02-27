@@ -117,10 +117,20 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
     </tr>
     <tr className="progress">
       <td colSpan={5}>
-        <div
-          data-percent={segment.percent}
-          style={{ width: `${segment.percent}%` }}
-        />
+        <Tooltip>
+          <Tooltip.Trigger>
+            <div
+              data-percent={segment.percent}
+              style={{ width: `${segment.percent}%` }}
+            />
+          </Tooltip.Trigger>
+          <Tooltip.Content>
+            This represents the percentage of the above bracket that your income
+            fulfills. If the line is green, it means that your income is above
+            the top of this bracket. If the line is blue, it means that your
+            income falls between the bottom and top of this bracket.
+          </Tooltip.Content>
+        </Tooltip>
       </td>
     </tr>
   </>
