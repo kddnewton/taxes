@@ -22,20 +22,13 @@ const makeSegments = ({ bracketSet, filingType, income }: TableProps): Segment[]
     const maximum = nextBracket && nextBracket[filingType];
 
     let total: number;
-    let percent: number;
 
     if (income < minimum) {
       total = 0;
-      percent = 0;
-    } else if (!maximum) {
+    } else if (!maximum || income < maximum) {
       total = income - minimum;
-      percent = 0;
-    } else if (income < maximum) {
-      total = income - minimum;
-      percent = (income - minimum) / (maximum - minimum) * 100;
     } else {
       total = maximum - minimum;
-      percent = 100;
     }
 
     return {
@@ -44,7 +37,7 @@ const makeSegments = ({ bracketSet, filingType, income }: TableProps): Segment[]
       total,
       rate: bracket.rate,
       amount: total * bracket.rate / 100,
-      percent
+      percent: maximum ? (total / (maximum - minimum)) * 100 : 0
     };
   })
 );
