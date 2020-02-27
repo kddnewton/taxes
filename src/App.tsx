@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import bracketSets from "./bracketSets.json";
-import Gutter from "./Gutter";
+import Gutter from "./display/Gutter";
 import Settings from "./Settings";
 import Table from "./Table";
 import { BracketSetsKey, FilingType } from "./typings";
