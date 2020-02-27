@@ -1,5 +1,7 @@
 import React from "react";
 
+import styles from "./control.module.css";
+
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 type NumberInputProps = Omit<InputProps, "className" | "id" | "onChange" | "type"> & {
   onChange: (value: number) => void;
@@ -15,7 +17,7 @@ const NumberInput: React.FC<NumberInputProps> = ({ children, name, onChange, ...
       {children}
       <input
         {...props}
-        className="control"
+        className={styles.control}
         id={name}
         name={name}
         onChange={handleChange}

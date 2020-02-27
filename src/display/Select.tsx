@@ -1,5 +1,7 @@
 import React from "react";
 
+import styles from "./control.module.css";
+
 type Option<T> = {
   label: string;
   value: T;
@@ -19,9 +21,18 @@ const Select = <T extends any>({ children, name, onChange, options, value, ...pr
   return (
     <label htmlFor={name}>
       {children}
-      <select {...props} className="control" id={name} name={name} onChange={handleChange} value={value}>
+      <select
+        {...props}
+        className={styles.control}
+        id={name}
+        name={name}
+        onChange={handleChange}
+        value={value}
+      >
         {options.map(option => (
-          <option key={option.value} value={option.value}>{option.label}</option>
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
         ))}
       </select>
     </label>
