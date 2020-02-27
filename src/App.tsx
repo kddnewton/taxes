@@ -18,8 +18,7 @@ const App: React.FC = () => {
       <h1 className={styles.heading}>
         US Federal Income Taxes
       </h1>
-      <Gutter />
-      <Gutter />
+      <Gutter height={2} />
       <Settings
         bracketSetsKey={bracketSetsKey}
         filingType={filingType}
@@ -28,8 +27,7 @@ const App: React.FC = () => {
         onFilingTypeChange={setFilingType}
         onIncomeChange={setIncome}
       />
-      <Gutter />
-      <Gutter />
+      <Gutter height={2} />
       <Table
         bracketSet={bracketSets[bracketSetsKey]}
         filingType={filingType}

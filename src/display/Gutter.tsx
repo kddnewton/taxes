@@ -1,7 +1,11 @@
 import React from "react";
 
-const Gutter: React.FC = () => (
-  <div className="gutter" />
+type GutterProps = {
+  height?: number;
+};
+
+const Gutter: React.FC<GutterProps> = ({ height = 1 }) => (
+  <div style={{ height: `${height * 1.2}em` }} />
 );
 
 export default Gutter;

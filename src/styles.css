@@ -6,10 +6,6 @@ body {
   margin: 0;
 }
 
-.gutter {
-  height: 1.2em;
-}
-
 .monospace {
   font-family: "Courier New", Courier, monospace;
 }
