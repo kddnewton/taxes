@@ -6,14 +6,18 @@ import Settings from "./Settings";
 import Table from "./Table";
 import { BracketSetsKey, FilingType } from "./typings";
 
+import styles from "./container.module.css";
+
 const App: React.FC = () => {
   const [bracketSetsKey, setBracketSetsKey] = useState<BracketSetsKey>("2020");
   const [filingType, setFilingType] = useState<FilingType>("single");
   const [income, setIncome] = useState<number>(100000);
 
   return (
-    <div className="container">
-      <h1>US Federal Income Taxes</h1>
+    <div className={styles.container}>
+      <h1 className={styles.heading}>
+        US Federal Income Taxes
+      </h1>
       <Gutter />
       <Gutter />
       <Settings
