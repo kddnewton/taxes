@@ -36,49 +36,40 @@ const Settings: React.FC<SettingsProps> = ({
 }) => (
   <div className="flex-column">
     <div className="flex-row">
-      <label htmlFor="year">
+      <Select<BracketSetsKey>
+        name="year"
+        onChange={onBracketSetsKeyChange}
+        options={Object.keys(bracketSets).map(value => ({
+          label: value,
+          value: value as BracketSetsKey
+        }))}
+        value={bracketSetsKey}
+      >
         Fiscal Year
-        <Select<BracketSetsKey>
-          id="year"
-          name="year"
-          className="control"
-          onChange={onBracketSetsKeyChange}
-          options={Object.keys(bracketSets).map(value => ({
-            label: value,
-            value: value as BracketSetsKey
-          }))}
-          value={bracketSetsKey}
-        />
-      </label>
-      <label htmlFor="type">
+      </Select>
+      <Select<FilingType>
+        name="type"
+        onChange={onFilingTypeChange}
+        options={[
+          { label: "Single", value: "single" },
+          { label: "Married Filing Jointly", value: "joint" },
+          { label: "Head of Household", value: "head" }
+        ]}
+        value={filingType}
+      >
         Filing Type
-        <Select<FilingType>
-          id="type"
-          name="type"
-          className="control"
-          onChange={onFilingTypeChange}
-          options={[
-            { label: "Single", value: "single" },
-            { label: "Married Filing Jointly", value: "joint" },
-            { label: "Head of Household", value: "head" }
-          ]}
-          value={filingType}
-        />
-      </label>
+      </Select>
     </div>
     <Gutter />
-    <label htmlFor="income">
+    <NumberInput
+      name="income"
+      onChange={onIncomeChange}
+      value={income}
+      min={0}
+      step={1000}
+    >
       Income
-      <NumberInput
-        type="number"
-        id="income"
-        name="income"
-        onChange={onIncomeChange}
-        value={income}
-        min={0}
-        step={1000}
-      />
-    </label>
+    </NumberInput>
     <div className="shortcuts">
       <IncomeButton value={25000} onClick={onIncomeChange} />
       <IncomeButton value={50000} onClick={onIncomeChange} />
