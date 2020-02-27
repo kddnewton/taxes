@@ -15,7 +15,7 @@ type SelectInputProps<T> = Omit<SelectProps, "className" | "onChange"> & {
 };
 
 const SelectInput = <T extends any>({ children, name, onChange, options, value, ...props }: SelectInputProps<T>) => {
-  const handleBlur = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(event.target.value as unknown as T);
   };
 
@@ -27,7 +27,7 @@ const SelectInput = <T extends any>({ children, name, onChange, options, value, 
         className={styles.control}
         id={name}
         name={name}
-        onBlur={handleBlur}
+        onChange={handleChange}
         value={value}
       >
         {options.map(option => (

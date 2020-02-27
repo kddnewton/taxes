@@ -1,0 +1,42 @@
+.container {
+  animation: zoom 300ms ease-out forwards;
+  background-color: white;
+  border: #ddd solid 1px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  left: 25vw;
+  padding: 2em;
+  position: absolute;
+  top: 10vh;
+  width: 50vw;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    left: 10vw;
+    width: 80vw;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale3d(.5, .5, .5);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .container {
+    animation: none;
+  }
+}
