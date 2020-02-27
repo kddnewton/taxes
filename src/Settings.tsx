@@ -1,8 +1,8 @@
 import React from "react";
 
 import bracketSets from "./bracketSets.json";
-import Gutter from "./Gutter";
-import Select from "./Select";
+import Gutter from "./display/Gutter";
+import Select from "./display/Select";
 import { BracketSetsKey, FilingType } from "./typings";
 
 type IncomeButtonProps = {

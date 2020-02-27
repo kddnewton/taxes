@@ -1,7 +1,7 @@
 import React from "react";
 
-import Dollars from "./Dollars";
-import Tooltip from "./Tooltip";
+import Dollars from "./display/Dollars";
+import Tooltip from "./display/Tooltip";
 import { Bracket, BracketSet, FilingType } from "./typings";
 
 type Segment = {
