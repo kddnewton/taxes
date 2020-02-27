@@ -34,7 +34,7 @@ const Settings: React.FC<SettingsProps> = ({
   onFilingTypeChange,
   onIncomeChange
 }) => (
-  <div className="flex-column">
+  <>
     <div className="flex-row">
       <SelectInput<BracketSetsKey>
         name="year"
@@ -80,7 +80,7 @@ const Settings: React.FC<SettingsProps> = ({
         1M
       </IncomeButton>
     </div>
-  </div>
+  </>
 );
 
 export default Settings;
