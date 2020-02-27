@@ -16,7 +16,7 @@
   outline: none;
   padding: 6px 12px;
   text-align: left;
-  transition: border-bottom .3s;
+  transition: border-bottom 0.3s;
   width: 100%;
 }
 
@@ -53,12 +53,12 @@
   width: 5em;
 }
 
-.ItZnsX3UFvJFX3trMUQJa button:focus {
-  z-index: 1;
-}
-
 .ItZnsX3UFvJFX3trMUQJa button + button {
   margin-left: -1px;
+}
+
+.ItZnsX3UFvJFX3trMUQJa button:focus {
+  z-index: 1;
 }
 
 .ItZnsX3UFvJFX3trMUQJa button:first-child {
@@ -175,7 +175,8 @@ body {
   width: 100%;
 }
 
-.table tbody, .table tfoot {
+.table tbody,
+.table tfoot {
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -184,6 +185,13 @@ body {
   padding: 8px;
   text-align: center;
   vertical-align: bottom;
+}
+
+.table td {
+  padding: 8px;
+  text-align: right;
+  vertical-align: top;
+  width: 20%;
 }
 
 .table tr.bordered td {
@@ -201,13 +209,6 @@ body {
 
 .table tr.disabled {
   color: #ccc;
-}
-
-.table td {
-  padding: 8px;
-  text-align: right;
-  vertical-align: top;
-  width: 20%;
 }
 
 .table tbody tr:first-child td,
