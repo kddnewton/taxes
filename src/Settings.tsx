@@ -6,6 +6,8 @@ import NumberInput from "./display/NumberInput";
 import SelectInput from "./display/SelectInput";
 import { BracketSetsKey, FilingType } from "./typings";
 
+import styles from "./settings.module.css";
+
 type IncomeButtonProps = {
   value: number;
   onClick: (value: number) => void;
@@ -35,7 +37,7 @@ const Settings: React.FC<SettingsProps> = ({
   onIncomeChange
 }) => (
   <>
-    <div className="flex-row">
+    <div className={styles.selects}>
       <SelectInput<BracketSetsKey>
         name="year"
         onChange={onBracketSetsKeyChange}
@@ -70,7 +72,7 @@ const Settings: React.FC<SettingsProps> = ({
     >
       Income
     </NumberInput>
-    <div className="shortcuts">
+    <div className={styles.shortcuts}>
       <IncomeButton value={25000} onClick={onIncomeChange} />
       <IncomeButton value={50000} onClick={onIncomeChange} />
       <IncomeButton value={100000} onClick={onIncomeChange} />

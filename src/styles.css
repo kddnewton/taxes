@@ -14,15 +14,6 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 
-.flex-row {
-  display: flex;
-  justify-content: space-between;
-}
-
-.flex-row label {
-  width: calc(50% - 0.5em);
-}
-
 .table {
   max-width: 100%;
   overflow-x: auto;
@@ -91,37 +82,4 @@ body {
 
 .table tfoot {
   font-weight: bold;
-}
-
-.shortcuts {
-  display: flex;
-  justify-content: center;
-  margin: 5px 0;
-}
-
-.shortcuts button {
-  background-color: white;
-  border: #aaa solid 1px;
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 1em;
-  width: 5em;
-}
-
-.shortcuts button:focus {
-  z-index: 1;
-}
-
-.shortcuts button + button {
-  margin-left: -1px;
-}
-
-.shortcuts button:first-child {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-}
-
-.shortcuts button:last-child {
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
 }
