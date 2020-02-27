@@ -7,7 +7,7 @@ export default {
   },
   entry: path.join(__dirname, "src", "index.tsx"),
   resolve: {
-    extensions: [".js", ".json", ".ts", ".tsx"]
+    extensions: [".css", ".js", ".json", ".ts", ".tsx"]
   },
   module: {
     rules: [

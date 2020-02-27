@@ -1,6 +1,8 @@
 import React, { useContext, useMemo, useState } from "react";
 import ReactDOM from "react-dom";
 
+import styles from "./tooltip.module.css";
+
 type TooltipContextState = {
   onEnter: (event: React.MouseEvent<HTMLElement>) => void;
   onLeave: () => void;
@@ -64,7 +66,7 @@ const TooltipContent: React.FC = ({ children }) => {
   }
 
   return ReactDOM.createPortal(
-    <div className="tooltip" style={position}>{children}</div>,
+    <div className={styles.tooltip} style={position}>{children}</div>,
     document.body
   );
 };
