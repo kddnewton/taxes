@@ -64,7 +64,7 @@ const Settings: React.FC<SettingsProps> = ({
             options={[
               { label: "Single", value: "single" },
               { label: "Married Filing Jointly", value: "joint" },
-              { label: "Heads of Households", value: "heads" }
+              { label: "Head of Household", value: "head" }
             ]}
             value={filingType}
           />

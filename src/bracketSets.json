@@ -4,43 +4,43 @@
       "rate": 10.0,
       "single": 0,
       "joint": 0,
-      "heads": 0
+      "head": 0
     },
     {
       "rate": 12.0,
       "single": 9875,
       "joint": 19750,
-      "heads": 14100
+      "head": 14100
     },
     {
       "rate": 22.0,
       "single": 40125,
       "joint": 80250,
-      "heads": 53700
+      "head": 53700
     },
     {
       "rate": 24.0,
       "single": 85525,
       "joint": 171050,
-      "heads": 85500
+      "head": 85500
     },
     {
       "rate": 32.0,
       "single": 163300,
       "joint": 326600,
-      "heads": 163300
+      "head": 163300
     },
     {
       "rate": 35.0,
       "single": 207350,
       "joint": 414700,
-      "heads": 207350
+      "head": 207350
     },
     {
       "rate": 37.0,
       "single": 518400,
       "joint": 622050,
-      "heads": 518400
+      "head": 518400
     }
   ],
   "2019": [
@@ -48,43 +48,43 @@
       "rate": 10.0,
       "single": 0,
       "joint": 0,
-      "heads": 0
+      "head": 0
     },
     {
       "rate": 12.0,
       "single": 9700,
       "joint": 19400,
-      "heads": 13850
+      "head": 13850
     },
     {
       "rate": 22.0,
       "single": 39475,
       "joint": 78950,
-      "heads": 52850
+      "head": 52850
     },
     {
       "rate": 24.0,
       "single": 84200,
       "joint": 168400,
-      "heads": 84200
+      "head": 84200
     },
     {
       "rate": 32.0,
       "single": 160725,
       "joint": 321450,
-      "heads": 160700
+      "head": 160700
     },
     {
       "rate": 35.0,
       "single": 204100,
       "joint": 408200,
-      "heads": 204100
+      "head": 204100
     },
     {
       "rate": 37.0,
       "single": 510300,
       "joint": 612350,
-      "heads": 510300
+      "head": 510300
     }
   ],
   "2018": [
@@ -92,43 +92,43 @@
       "rate": 10.0,
       "single": 0,
       "joint": 0,
-      "heads": 0
+      "head": 0
     },
     {
       "rate": 12.0,
       "single": 9525,
       "joint": 19050,
-      "heads": 13600
+      "head": 13600
     },
     {
       "rate": 22.0,
       "single": 38700,
       "joint": 77400,
-      "heads": 51800
+      "head": 51800
     },
     {
       "rate": 24.0,
       "single": 82500,
       "joint": 165000,
-      "heads": 82500
+      "head": 82500
     },
     {
       "rate": 32.0,
       "single": 157500,
       "joint": 315000,
-      "heads": 157500
+      "head": 157500
     },
     {
       "rate": 35.0,
       "single": 200000,
       "joint": 400000,
-      "heads": 200000
+      "head": 200000
     },
     {
       "rate": 37.0,
       "single": 500000,
       "joint": 600000,
-      "heads": 500000
+      "head": 500000
     }
   ]
 }
