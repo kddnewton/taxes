@@ -54,9 +54,9 @@ const App: React.FC = () => {
           <p>
             As you make more money, you may start to earn money within a higher
             tax bracket. Don&apos;t worry! The money that you made that was
-            taxed at a lower rate is still taxed at that rate. It is only the
-            income made between the bottom and top of each bracket that is taxed
-            at the rate of that bracket.
+            taxed at a lower rate is still taxed at the lower rate. It is only
+            the income made between the bottom and top of each bracket that is
+            taxed at the rate of that bracket.
           </p>
         </Modal>
       )}
