@@ -1,6 +1,7 @@
 import React from "react";
+import { render } from "@testing-library/react";
 
-import { formatAmount } from "../Dollars";
+import Dollars, { formatAmount } from "../Dollars";
 
 test("strips out cents if there aren't any", () => {
   expect(formatAmount(1.00)).toEqual("$1");
@@ -20,4 +21,10 @@ test("adds commas if value is >= 1000", () => {
 
 test("adds multiple commas if value is >= 1000000", () => {
   expect(formatAmount(1000000)).toEqual("$1,000,000");
+});
+
+test("renders the Dollars component with the same formatting", () => {
+  const { queryByText } = render(<Dollars amount={100} />);
+
+  expect(queryByText("$100")).toBeTruthy();
 });
