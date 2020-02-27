@@ -97,7 +97,7 @@ h1 {
   padding: 0;
 }
 
-.table tr.progress div {
+.table tr.progress .bar {
   background-color: #8cb4d6;
   height: 3px;
   transition: width 150ms;
@@ -215,7 +215,7 @@ h1 {
   border-bottom: 10px solid white;
   content: " ";
   position: absolute;
-  left: 20px;
+  left: 11px;
   top: -10px;
 }
 
@@ -224,6 +224,6 @@ h1 {
   border-right-width: 9px;
   border-bottom-color: #aaa;
   border-bottom-width: 11px;
-  left: 19px;
+  left: 10px;
   top: -11px;
 }

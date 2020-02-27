@@ -118,8 +118,9 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
     <tr className="progress">
       <td colSpan={5}>
         <Tooltip>
-          <Tooltip.Trigger>
+          <Tooltip.Trigger as="div">
             <div
+              className="bar"
               data-percent={segment.percent}
               style={{ width: `${segment.percent}%` }}
             />

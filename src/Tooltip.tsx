@@ -2,9 +2,9 @@ import React, { useContext, useMemo, useState } from "react";
 import ReactDOM from "react-dom";
 
 type TooltipContextState = {
-  onEnter: (event: React.MouseEvent<HTMLSpanElement>) => void;
+  onEnter: (event: React.MouseEvent<HTMLElement>) => void;
   onLeave: () => void;
-  position: null | DOMRect;
+  position: null | { left: number; top: number };
 };
 
 const TooltipContext = React.createContext<TooltipContextState>({
@@ -20,9 +20,10 @@ const Tooltip = ({ children }: { children: React.ReactNode }) => {
 
   const value = useMemo(
     () => ({
-      onEnter: (event: React.MouseEvent<HTMLSpanElement>) => {
-        if (event.target instanceof HTMLSpanElement) {
-          setPosition(event.target.getBoundingClientRect());
+      onEnter: (event: React.MouseEvent<HTMLElement>) => {
+        if (event.target instanceof HTMLElement) {
+          const { top } = event.target.getBoundingClientRect();
+          setPosition({ left: event.clientX - 20, top: top + window.scrollY + 30 });
         }
       },
       onLeave: () => {
@@ -40,13 +41,18 @@ const Tooltip = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-const TooltipTrigger: React.FC = ({ children }) => {
+type TooltipTriggerProps<P extends any = any> = (
+  | ({ as: React.ComponentType<P> } & P)
+  | { as: undefined }
+);
+
+const TooltipTrigger: React.FC<TooltipTriggerProps> = ({ as: As = "span", children }) => {
   const { onEnter, onLeave } = useTooltip();
 
   return (
-    <span onMouseEnter={onEnter} onMouseLeave={onLeave}>
+    <As onMouseEnter={onEnter} onMouseLeave={onLeave}>
       {children}
-    </span>
+    </As>
   );
 };
 
@@ -57,11 +63,8 @@ const TooltipContent: React.FC = ({ children }) => {
     return null;
   }
 
-  const { left, top } = position;
-  const style = { left: left - 20, top: top + window.scrollY + 30 };
-
   return ReactDOM.createPortal(
-    <div className="tooltip" style={style}>{children}</div>,
+    <div className="tooltip" style={position}>{children}</div>,
     document.body
   );
 };
