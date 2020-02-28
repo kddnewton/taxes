@@ -10,10 +10,6 @@ import { BracketSetsKey, FilingType } from "./typings";
 import styles from "./container.module.css";
 
 const App: React.FC = () => {
-  const [aboutOpen, setAboutOpen] = useState<boolean>(false);
-  const onAboutOpen = () => setAboutOpen(true);
-  const onAboutClose = useCallback(() => setAboutOpen(false), [setAboutOpen]);
-
   const [bracketSetsKey, setBracketSetsKey] = useState<BracketSetsKey>("2020");
   const [filingType, setFilingType] = useState<FilingType>("single");
   const [income, setIncome] = useState<number>(50000);
@@ -24,9 +20,30 @@ const App: React.FC = () => {
         <h1 className={styles.heading}>
           US Federal Income Taxes
         </h1>
-        <button type="button" className={styles.about} onClick={onAboutOpen}>
-          What is this?
-        </button>
+        <Modal>
+          <Modal.Trigger>
+            {onOpen => (
+              <button type="button" className={styles.about} onClick={onOpen}>
+                What is this?
+              </button>
+            )}
+          </Modal.Trigger>
+          <Modal.Content>
+            <p>
+              This web page is meant to give you an idea of how a progressive tax
+              system (like the one in place for US federal income tax) works.
+              Income is broken up into sections called &quot;brackets&quot;, each
+              taxed at a different rate.
+            </p>
+            <p>
+              As you make more money, you may start to earn money within a higher
+              tax bracket. Don&apos;t worry! The money that you made that was
+              taxed at a lower rate is still taxed at the lower rate. It is only
+              the income made between the bottom and top of each bracket that is
+              taxed at the rate of that bracket.
+            </p>
+          </Modal.Content>
+        </Modal>
         <Gutter height={2} />
         <Settings
           bracketSetsKey={bracketSetsKey}
@@ -43,23 +60,6 @@ const App: React.FC = () => {
           income={income}
         />
       </div>
-      {aboutOpen && (
-        <Modal onClose={onAboutClose}>
-          <p>
-            This web page is meant to give you an idea of how a progressive tax
-            system (like the one in place for US federal income tax) works.
-            Income is broken up into sections called &quot;brackets&quot;, each
-            taxed at a different rate.
-          </p>
-          <p>
-            As you make more money, you may start to earn money within a higher
-            tax bracket. Don&apos;t worry! The money that you made that was
-            taxed at a lower rate is still taxed at the lower rate. It is only
-            the income made between the bottom and top of each bracket that is
-            taxed at the rate of that bracket.
-          </p>
-        </Modal>
-      )}
     </>
   );
 };

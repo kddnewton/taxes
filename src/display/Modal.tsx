@@ -1,13 +1,63 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 
 import styles from "./modal.module.css";
 
-type ModalProps = {
+type ModalContextState = {
+  open: boolean;
+  onOpen: () => void;
   onClose: () => void;
 };
 
-const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
+const ModalContext = React.createContext<ModalContextState>({
+  open: false,
+  onOpen: () => {},
+  onClose: () => {}
+});
+
+const useModal = () => useContext(ModalContext);
+
+const Modal = ({ children }: { children: React.ReactNode }) => {
+  const [open, setOpen] = useState(false);
+
+  const value = useMemo(
+    () => ({
+      open,
+      onOpen: () => setOpen(true),
+      onClose: () => setOpen(false)
+    }),
+    [open, setOpen]
+  );
+
+  return (
+    <ModalContext.Provider value={value}>
+      {children}
+    </ModalContext.Provider>
+  );
+};
+
+type ModalTriggerProps = {
+  children: (onTrigger: () => void) => React.ReactNode;
+}
+
+const ModalTrigger = ({ children }: ModalTriggerProps) => {
+  const { onOpen } = useModal();
+
+  return <>{children(onOpen)}</>;
+};
+
+const ModalContent: React.FC = ({ children }) => {
+  const { open } = useModal();
+
+  if (!open) {
+    return null;
+  }
+
+  return <ModalBody>{children}</ModalBody>;
+};
+
+const ModalBody: React.FC = ({ children }) => {
+  const { onClose } = useModal();
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(
@@ -34,7 +84,7 @@ const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
         document.removeEventListener("keydown", onKeyDown);
       };
     },
-    [modalRef, onClose]
+    [open, modalRef, onClose]
   );
 
   return ReactDOM.createPortal(
@@ -44,5 +94,8 @@ const Modal: React.FC<ModalProps> = ({ children, onClose }) => {
     document.body
   );
 };
+
+Modal.Trigger = ModalTrigger;
+Modal.Content = ModalContent;
 
 export default Modal;
