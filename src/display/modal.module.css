@@ -31,7 +31,7 @@
 @keyframes zoom {
   0% {
     opacity: 0;
-    transform: scale3d(.5, .5, .5);
+    transform: scale3d(0.5, 0.5, 0.5);
   }
 
   50% {

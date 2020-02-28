@@ -15,13 +15,13 @@ const options: Option[] = [
 test("calls back to onChange when the select value changes", () => {
   const onChange = jest.fn();
   const { getByRole } = render(
-    <SelectInput<Option> name="select" onChange={onChange} options={options}>
+    <SelectInput<Value> name="select" onChange={onChange} options={options}>
       Select
     </SelectInput>
   );
 
   const value = "joint";
-  fireEvent.blur(getByRole("combobox"), { target: { value } });
+  fireEvent.change(getByRole("combobox"), { target: { value } });
 
   expect(onChange).toHaveBeenCalledTimes(1);
   expect(onChange).toHaveBeenLastCalledWith(value);

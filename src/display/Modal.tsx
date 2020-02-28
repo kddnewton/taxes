@@ -11,8 +11,12 @@ type ModalContextState = {
 
 const ModalContext = React.createContext<ModalContextState>({
   open: false,
-  onOpen: () => {},
-  onClose: () => {}
+  onOpen: () => {
+    // do nothing
+  },
+  onClose: () => {
+    // do nothing
+  }
 });
 
 const useModal = () => useContext(ModalContext);
@@ -37,7 +41,7 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
 };
 
 type ModalTriggerProps = {
-  className: string;
+  className?: string;
 };
 
 const ModalTrigger: React.FC<ModalTriggerProps> = ({ children, className }) => {
@@ -89,7 +93,7 @@ const ModalBody: React.FC = ({ children }) => {
         document.removeEventListener("keydown", onKeyDown);
       };
     },
-    [open, modalRef, onClose]
+    [modalRef, onClose]
   );
 
   return ReactDOM.createPortal(

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import bracketSets from "./bracketSets.json";
 import Gutter from "./display/Gutter";

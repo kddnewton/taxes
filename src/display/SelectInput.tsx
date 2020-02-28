@@ -11,9 +11,13 @@ type SelectProps = React.SelectHTMLAttributes<HTMLSelectElement>;
 type SelectInputProps<T> = Omit<SelectProps, "className" | "onChange"> & {
   onChange: (value: T) => void;
   options: Option<T>[];
-  value: T;
+  value?: T;
 };
 
+// Not entirely sure what to do here, because you don't switch it to using
+// onBlur without React thinking its an unmanaged component. Disabling this rule
+// for now.
+/* eslint-disable jsx-a11y/no-onchange */
 const SelectInput = <T extends any>({ children, name, onChange, options, value, ...props }: SelectInputProps<T>) => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(event.target.value as unknown as T);

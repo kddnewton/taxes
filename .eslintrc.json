@@ -4,7 +4,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": "tsconfig.eslint.json"
+    "project": "tsconfig.test.json"
   },
   "plugins": [
     "jsx-a11y",
