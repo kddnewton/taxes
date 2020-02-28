@@ -21,12 +21,8 @@ const App: React.FC = () => {
           US Federal Income Taxes
         </h1>
         <Modal>
-          <Modal.Trigger>
-            {onOpen => (
-              <button type="button" className={styles.about} onClick={onOpen}>
-                What is this?
-              </button>
-            )}
+          <Modal.Trigger className={styles.about}>
+            What is this?
           </Modal.Trigger>
           <Modal.Content>
             <p>

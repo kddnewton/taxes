@@ -1,3 +1,12 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .container {
   animation: zoom 300ms ease-out forwards;
   background-color: white;
@@ -6,7 +15,7 @@
   box-sizing: border-box;
   left: 25vw;
   padding: 2em;
-  position: absolute;
+  position: fixed;
   top: 10vh;
   width: 50vw;
   z-index: 1;
@@ -39,4 +48,17 @@
   .container {
     animation: none;
   }
+}
+
+.trigger {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 
 import Dollars from "./display/Dollars";
+import Modal from "./display/Modal";
 import ProgressBar from "./display/ProgressBar";
 import Tooltip from "./display/Tooltip";
 import { BracketSet, FilingType } from "./typings";
@@ -51,62 +52,62 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
   <>
     <tr className={income <= segment.minimum ? "bordered disabled" : "bordered"}>
       <td>
-        <Tooltip>
-          <Tooltip.Trigger>
+        <Modal>
+          <Modal.Trigger>
             <Dollars amount={segment.minimum} />
-          </Tooltip.Trigger>
-          <Tooltip.Content>
+          </Modal.Trigger>
+          <Modal.Content>
             This is the bottom of this tax bracket. Any income you earn below
             this amount will be taxed at a lower rate. Any income you earn above
             this amount and below the maximum of this bracket will be taxed at
             this rate.
-          </Tooltip.Content>
-        </Tooltip>
+          </Modal.Content>
+        </Modal>
       </td>
       <td>
         {segment.maximum && (
-          <Tooltip>
-            <Tooltip.Trigger>
+          <Modal>
+            <Modal.Trigger>
               <Dollars amount={segment.maximum} />
-            </Tooltip.Trigger>
-            <Tooltip.Content>
+            </Modal.Trigger>
+            <Modal.Content>
               This is the top of this tax bracket. Any income you earn above
               this amount will be taxed at a higher rate.
-            </Tooltip.Content>
-          </Tooltip>
+            </Modal.Content>
+          </Modal>
         )}
       </td>
       <td>
-        <Tooltip>
-          <Tooltip.Trigger>
+        <Modal>
+          <Modal.Trigger>
             <Dollars amount={segment.total} />
-          </Tooltip.Trigger>
-          <Tooltip.Content>
+          </Modal.Trigger>
+          <Modal.Content>
             This is the total amount of your income that falls within this tax
             bracket.
-          </Tooltip.Content>
-        </Tooltip>
+          </Modal.Content>
+        </Modal>
       </td>
       <td>
-        <Tooltip>
-          <Tooltip.Trigger>{segment.rate}%</Tooltip.Trigger>
-          <Tooltip.Content>
+        <Modal>
+          <Modal.Trigger>{segment.rate}%</Modal.Trigger>
+          <Modal.Content>
             This is the rate of this tax bracket. Any income you earn above the
             bottom and below the top of this bracket will be taxed at this rate.
-          </Tooltip.Content>
-        </Tooltip>
+          </Modal.Content>
+        </Modal>
       </td>
       <td>
-        <Tooltip>
-          <Tooltip.Trigger>
+        <Modal>
+          <Modal.Trigger>
             <Dollars amount={segment.amount} />
-          </Tooltip.Trigger>
-          <Tooltip.Content>
+          </Modal.Trigger>
+          <Modal.Content>
             This is the total amount of taxes that you&apos;re paying for this
             tax bracket. It is the result of multiplying the total amount of
             income that falls within this bracket by the rate of this bracket.
-          </Tooltip.Content>
-        </Tooltip>
+          </Modal.Content>
+        </Modal>
       </td>
     </tr>
     <tr className="progress">
@@ -162,30 +163,30 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
           <tr className="bordered">
             <td colSpan={3} />
             <td>
-              <Tooltip>
-                <Tooltip.Trigger>
+              <Modal>
+                <Modal.Trigger>
                   {(amount / income * 100).toFixed(2)}%
-                </Tooltip.Trigger>
-                <Tooltip.Content>
+                </Modal.Trigger>
+                <Modal.Content>
                   This is what is called your &quot;effective rate&quot;. It is
                   a result of dividing the total amount of taxes that you owe by
                   your income. Another way of thinking about it is the weighted
                   average of the rates of the tax brackets in which your income
                   falls.
-                </Tooltip.Content>
-              </Tooltip>
+                </Modal.Content>
+              </Modal>
             </td>
             <td>
-              <Tooltip>
-                <Tooltip.Trigger>
+              <Modal>
+                <Modal.Trigger>
                   <Dollars amount={amount} />
-                </Tooltip.Trigger>
-                <Tooltip.Content>
+                </Modal.Trigger>
+                <Modal.Content>
                   This is the total amount of money that you owe in federal
                   income taxes. It is the result of adding up each number in
                   this column, which represent the total in each bracket.
-                </Tooltip.Content>
-              </Tooltip>
+                </Modal.Content>
+              </Modal>
             </td>
           </tr>
         </tfoot>

@@ -37,13 +37,18 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
 };
 
 type ModalTriggerProps = {
-  children: (onTrigger: () => void) => React.ReactNode;
-}
+  className: string;
+};
 
-const ModalTrigger = ({ children }: ModalTriggerProps) => {
+const ModalTrigger: React.FC<ModalTriggerProps> = ({ children, className }) => {
   const { onOpen } = useModal();
+  const classNames = [styles.trigger, className].join(" ");
 
-  return <>{children(onOpen)}</>;
+  return (
+    <button type="button" className={classNames} onClick={onOpen}>
+      {children}
+    </button>
+  );
 };
 
 const ModalContent: React.FC = ({ children }) => {
@@ -88,8 +93,10 @@ const ModalBody: React.FC = ({ children }) => {
   );
 
   return ReactDOM.createPortal(
-    <div ref={modalRef} className={styles.container}>
-      {children}
+    <div className={styles.overlay}>
+      <div ref={modalRef} className={styles.container}>
+        {children}
+      </div>
     </div>,
     document.body
   );

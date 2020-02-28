@@ -35,16 +35,8 @@
 }
 
 .about {
-  appearance: none;
-  background: transparent;
-  border: 0;
   color: #79b17d;
-  cursor: pointer;
   display: block;
-  font-family: inherit;
-  font-size: inherit;
   font-weight: bold;
-  line-height: inherit;
   margin: 0.5em auto;
-  padding: 0;
 }
