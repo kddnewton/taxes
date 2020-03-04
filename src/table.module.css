@@ -27,12 +27,6 @@
   font-weight: bold;
 }
 
-.body tr:first-child td,
-.footer tr:first-child td {
-  border-top-width: 2px;
-  border-top-color: #ccc;
-}
-
 .data td {
   border-top: 1px solid #e0e0e0;
   padding: 8px;
@@ -53,35 +47,8 @@
   color: #ccc;
 }
 
-
-/*
-.table td {
-  padding: 8px;
-  text-align: right;
-  vertical-align: top;
-  width: 20%;
-}
-
-.table tr.bordered td {
-  border-top: 1px solid #e0e0e0;
-}
-
-.table tbody tr.bordered:hover,
-.table tbody tr.bordered:hover + tr {
-  background-color: #eee;
-}
-
-.table tr.progress td {
-  padding: 0;
-}
-
-.table tr.disabled {
-  color: #ccc;
-}
-
-.table tbody tr:first-child td,
-.table tfoot tr:first-child td {
+.body tr:first-child td,
+.footer tr:first-child td {
   border-top-width: 2px;
   border-top-color: #ccc;
 }
-*/
