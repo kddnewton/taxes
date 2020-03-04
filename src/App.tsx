@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [income, setIncome] = useState<number>(50000);
 
   return (
-    <>
+    <div className={styles.app}>
       <div className={styles.container}>
         <h1 className={styles.heading}>
           US Federal Income Taxes
@@ -56,7 +56,7 @@ const App: React.FC = () => {
           income={income}
         />
       </div>
-    </>
+    </div>
   );
 };
 

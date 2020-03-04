@@ -1,11 +1,11 @@
 .progress {
-  background-color: #8cb4d6;
+  background-color: var(--primary-blue);
   height: 3px;
   transition: width 150ms;
 }
 
 .progress[aria-valuenow='100'] {
-  background-color: #79b17d;
+  background-color: var(--primary-green);
 }
 
 @media (prefers-reduced-motion: reduce) {

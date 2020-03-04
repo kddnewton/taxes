@@ -21,7 +21,7 @@
 }
 
 .control:focus {
-  border-bottom-color: #79b17d;
+  border-bottom-color: var(--primary-green);
 }
 
 .control:focus,
