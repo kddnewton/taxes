@@ -22,6 +22,12 @@ const App: React.FC = () => {
         </h1>
         <Modal>
           <Modal.Trigger className={styles.about}>
+            <svg viewBox="0 0 12 12" className={styles.icon} aria-hidden>
+              <circle cx={6} cy={6} r={5} />
+              <path d="M6,9 l0,-3" />
+              <path d="M6,5 l0,-1" />
+            </svg>
+            {" "}
             What is this?
           </Modal.Trigger>
           <Modal.Content>

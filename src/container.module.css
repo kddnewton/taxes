@@ -44,3 +44,16 @@
   font-weight: bold;
   margin: 0.5em auto;
 }
+
+.icon {
+  display: inline-block;
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: text-bottom;
+}
+
+.icon path,
+.icon circle {
+  fill: transparent;
+  stroke: var(--primary-green);
+}
