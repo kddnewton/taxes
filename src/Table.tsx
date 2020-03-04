@@ -3,7 +3,6 @@ import React from "react";
 import Dollars from "./display/Dollars";
 import Modal from "./display/Modal";
 import ProgressBar from "./display/ProgressBar";
-import Tooltip from "./display/Tooltip";
 import { BracketSet, FilingType } from "./typings";
 
 type Segment = {
@@ -112,17 +111,7 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
     </tr>
     <tr className="progress">
       <td colSpan={5}>
-        <Tooltip>
-          <Tooltip.Trigger as="div">
-            <ProgressBar value={segment.percent} />
-          </Tooltip.Trigger>
-          <Tooltip.Content>
-            This represents the percentage of the above bracket that your income
-            fulfills. If the line is green, it means that your income is above
-            the top of this bracket. If the line is blue, it means that your
-            income falls between the bottom and top of this bracket.
-          </Tooltip.Content>
-        </Tooltip>
+        <ProgressBar value={segment.percent} />
       </td>
     </tr>
   </>
