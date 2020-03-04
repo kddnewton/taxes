@@ -30,7 +30,8 @@
   width: 25%;
 }
 
-.body .data:hover {
+.body .data:hover,
+.body .data:hover + tr {
   background-color: #eee;
 }
 
