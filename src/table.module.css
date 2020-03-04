@@ -1,8 +1,3 @@
-.container {
-  max-width: 100%;
-  overflow-x: auto;
-}
-
 .table {
   background-color: transparent;
   border-collapse: collapse;

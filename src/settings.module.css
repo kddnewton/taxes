@@ -18,8 +18,8 @@
   border: #aaa solid 1px;
   border-radius: 0;
   box-shadow: none;
-  font-size: 1em;
-  width: 5em;
+  font-size: 0.9em;
+  width: 4em;
 }
 
 .shortcuts button + button {

@@ -131,54 +131,52 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
   });
 
   return (
-    <div className={[styles.container, "table"].join(" ")}>
-      <table className={styles.table}>
-        <thead className={styles.header}>
-          <tr>
-            <th>Bottom</th>
-            <th>Top</th>
-            <th>Rate</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody className={styles.body}>
-          {segments.map(segment => (
-            <TableRow key={segment.rate} income={income} segment={segment} />
-          ))}
-        </tbody>
-        <tfoot className={styles.footer}>
-          <tr className={styles.data}>
-            <td colSpan={2} />
-            <td>
-              <Modal>
-                <Modal.Trigger>
-                  {(amount / income * 100).toFixed(2)}%
-                </Modal.Trigger>
-                <Modal.Content>
-                  This is what is called your &quot;effective rate&quot;. It is
-                  a result of dividing the total amount of taxes that you owe by
-                  your income. Another way of thinking about it is the weighted
-                  average of the rates of the tax brackets in which your income
-                  falls.
-                </Modal.Content>
-              </Modal>
-            </td>
-            <td>
-              <Modal>
-                <Modal.Trigger>
-                  <Dollars amount={amount} />
-                </Modal.Trigger>
-                <Modal.Content>
-                  This is the total amount of money that you owe in federal
-                  income taxes. It is the result of adding up each number in
-                  this column, which represent the total in each bracket.
-                </Modal.Content>
-              </Modal>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-    </div>
+    <table className={styles.table}>
+      <thead className={styles.header}>
+        <tr>
+          <th>Lower</th>
+          <th>Upper</th>
+          <th>Rate</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody className={styles.body}>
+        {segments.map(segment => (
+          <TableRow key={segment.rate} income={income} segment={segment} />
+        ))}
+      </tbody>
+      <tfoot className={styles.footer}>
+        <tr className={styles.data}>
+          <td colSpan={2} />
+          <td>
+            <Modal>
+              <Modal.Trigger>
+                {(amount / income * 100).toFixed(2)}%
+              </Modal.Trigger>
+              <Modal.Content>
+                This is what is called your &quot;effective rate&quot;. It is
+                a result of dividing the total amount of taxes that you owe by
+                your income. Another way of thinking about it is the weighted
+                average of the rates of the tax brackets in which your income
+                falls.
+              </Modal.Content>
+            </Modal>
+          </td>
+          <td>
+            <Modal>
+              <Modal.Trigger>
+                <Dollars amount={amount} />
+              </Modal.Trigger>
+              <Modal.Content>
+                This is the total amount of money that you owe in federal
+                income taxes. It is the result of adding up each number in
+                this column, which represent the total in each bracket.
+              </Modal.Content>
+            </Modal>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   );
 };
 
