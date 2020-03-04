@@ -87,17 +87,6 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
         </td>
         <td>
           <Modal>
-            <Modal.Trigger>
-              <Dollars amount={segment.total} />
-            </Modal.Trigger>
-            <Modal.Content>
-              This is the total amount of your income that falls within this tax
-              bracket.
-            </Modal.Content>
-          </Modal>
-        </td>
-        <td>
-          <Modal>
             <Modal.Trigger>{segment.rate}%</Modal.Trigger>
             <Modal.Content>
               This is the rate of this tax bracket. Any income you earn above the
@@ -119,7 +108,7 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
         </td>
       </tr>
       <tr className={styles.progress}>
-        <td colSpan={5}>
+        <td colSpan={4}>
           <ProgressBar value={segment.percent} />
         </td>
       </tr>
@@ -148,7 +137,6 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
           <tr>
             <th>Bottom</th>
             <th>Top</th>
-            <th>Total</th>
             <th>Rate</th>
             <th>Amount</th>
           </tr>
@@ -160,7 +148,7 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
         </tbody>
         <tfoot className={styles.footer}>
           <tr className={styles.data}>
-            <td colSpan={3} />
+            <td colSpan={2} />
             <td>
               <Modal>
                 <Modal.Trigger>
