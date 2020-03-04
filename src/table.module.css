@@ -1,0 +1,87 @@
+.container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.header th {
+  font-weight: inherit;
+  padding: 8px;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.body,
+.footer {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.footer {
+  font-weight: bold;
+}
+
+.body tr:first-child td,
+.footer tr:first-child td {
+  border-top-width: 2px;
+  border-top-color: #ccc;
+}
+
+.data td {
+  border-top: 1px solid #e0e0e0;
+  padding: 8px;
+  text-align: right;
+  vertical-align: top;
+  width: 20%;
+}
+
+.body .data:hover {
+  background-color: #eee;
+}
+
+.progress td {
+  padding: 0;
+}
+
+.disabled {
+  color: #ccc;
+}
+
+
+/*
+.table td {
+  padding: 8px;
+  text-align: right;
+  vertical-align: top;
+  width: 20%;
+}
+
+.table tr.bordered td {
+  border-top: 1px solid #e0e0e0;
+}
+
+.table tbody tr.bordered:hover,
+.table tbody tr.bordered:hover + tr {
+  background-color: #eee;
+}
+
+.table tr.progress td {
+  padding: 0;
+}
+
+.table tr.disabled {
+  color: #ccc;
+}
+
+.table tbody tr:first-child td,
+.table tfoot tr:first-child td {
+  border-top-width: 2px;
+  border-top-color: #ccc;
+}
+*/

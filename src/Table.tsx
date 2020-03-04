@@ -5,6 +5,8 @@ import Modal from "./display/Modal";
 import ProgressBar from "./display/ProgressBar";
 import { BracketSet, FilingType } from "./typings";
 
+import styles from "./table.module.css";
+
 type Segment = {
   minimum: number;
   maximum?: number;
@@ -47,75 +49,83 @@ type TableRowProps = {
   segment: Segment;
 };
 
-const TableRow: React.FC<TableRowProps> = ({ income, segment }) => (
-  <>
-    <tr className={income <= segment.minimum ? "bordered disabled" : "bordered"}>
-      <td>
-        <Modal>
-          <Modal.Trigger>
-            <Dollars amount={segment.minimum} />
-          </Modal.Trigger>
-          <Modal.Content>
-            This is the bottom of this tax bracket. Any income you earn below
-            this amount will be taxed at a lower rate. Any income you earn above
-            this amount and below the maximum of this bracket will be taxed at
-            this rate.
-          </Modal.Content>
-        </Modal>
-      </td>
-      <td>
-        {segment.maximum && (
+const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
+  const classNames = [styles.data];
+
+  if (income <= segment.minimum) {
+    classNames.push(styles.disabled);
+  }
+
+  return (
+    <>
+      <tr className={classNames.join(" ")}>
+        <td>
           <Modal>
             <Modal.Trigger>
-              <Dollars amount={segment.maximum} />
+              <Dollars amount={segment.minimum} />
             </Modal.Trigger>
             <Modal.Content>
-              This is the top of this tax bracket. Any income you earn above
-              this amount will be taxed at a higher rate.
+              This is the bottom of this tax bracket. Any income you earn below
+              this amount will be taxed at a lower rate. Any income you earn above
+              this amount and below the maximum of this bracket will be taxed at
+              this rate.
             </Modal.Content>
           </Modal>
-        )}
-      </td>
-      <td>
-        <Modal>
-          <Modal.Trigger>
-            <Dollars amount={segment.total} />
-          </Modal.Trigger>
-          <Modal.Content>
-            This is the total amount of your income that falls within this tax
-            bracket.
-          </Modal.Content>
-        </Modal>
-      </td>
-      <td>
-        <Modal>
-          <Modal.Trigger>{segment.rate}%</Modal.Trigger>
-          <Modal.Content>
-            This is the rate of this tax bracket. Any income you earn above the
-            bottom and below the top of this bracket will be taxed at this rate.
-          </Modal.Content>
-        </Modal>
-      </td>
-      <td>
-        <Modal>
-          <Modal.Trigger>
-            <Dollars amount={segment.amount} />
-          </Modal.Trigger>
-          <Modal.Content>
-            This is the total amount of taxes that you&apos;re paying for this
-            tax bracket. It is the result of multiplying the total amount of
-            income that falls within this bracket by the rate of this bracket.
-          </Modal.Content>
-        </Modal>
-      </td>
-    </tr>
-    <tr className="progress">
-      <td colSpan={5}>
-        <ProgressBar value={segment.percent} />
-      </td>
-    </tr>
-  </>
-);
+        </td>
+        <td>
+          {segment.maximum && (
+            <Modal>
+              <Modal.Trigger>
+                <Dollars amount={segment.maximum} />
+              </Modal.Trigger>
+              <Modal.Content>
+                This is the top of this tax bracket. Any income you earn above
+                this amount will be taxed at a higher rate.
+              </Modal.Content>
+            </Modal>
+          )}
+        </td>
+        <td>
+          <Modal>
+            <Modal.Trigger>
+              <Dollars amount={segment.total} />
+            </Modal.Trigger>
+            <Modal.Content>
+              This is the total amount of your income that falls within this tax
+              bracket.
+            </Modal.Content>
+          </Modal>
+        </td>
+        <td>
+          <Modal>
+            <Modal.Trigger>{segment.rate}%</Modal.Trigger>
+            <Modal.Content>
+              This is the rate of this tax bracket. Any income you earn above the
+              bottom and below the top of this bracket will be taxed at this rate.
+            </Modal.Content>
+          </Modal>
+        </td>
+        <td>
+          <Modal>
+            <Modal.Trigger>
+              <Dollars amount={segment.amount} />
+            </Modal.Trigger>
+            <Modal.Content>
+              This is the total amount of taxes that you&apos;re paying for this
+              tax bracket. It is the result of multiplying the total amount of
+              income that falls within this bracket by the rate of this bracket.
+            </Modal.Content>
+          </Modal>
+        </td>
+      </tr>
+      <tr className={styles.progress}>
+        <td colSpan={5}>
+          <ProgressBar value={segment.percent} />
+        </td>
+      </tr>
+    </>
+  );
+};
 
 type TableProps = {
   bracketSet: BracketSet;
@@ -132,9 +142,9 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
   });
 
   return (
-    <div className="table">
-      <table>
-        <thead>
+    <div className={[styles.container, "table"].join(" ")}>
+      <table className={styles.table}>
+        <thead className={styles.header}>
           <tr>
             <th>Bottom</th>
             <th>Top</th>
@@ -143,13 +153,13 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={styles.body}>
           {segments.map(segment => (
             <TableRow key={segment.rate} income={income} segment={segment} />
           ))}
         </tbody>
-        <tfoot>
-          <tr className="bordered">
+        <tfoot className={styles.footer}>
+          <tr className={styles.data}>
             <td colSpan={3} />
             <td>
               <Modal>
