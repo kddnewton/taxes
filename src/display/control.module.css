@@ -16,12 +16,11 @@
   outline: none;
   padding: 6px 12px;
   text-align: left;
-  transition: border-bottom 0.3s;
   width: 100%;
 }
 
 .control:focus {
-  border-bottom-color: var(--primary-green);
+  border-bottom-color: var(--primary);
 }
 
 .control:focus,
