@@ -65,10 +65,18 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
               <Dollars amount={segment.minimum} />
             </Modal.Trigger>
             <Modal.Content>
-              This is the bottom of this tax bracket. Any income you earn below
-              this amount will be taxed at a lower rate. Any income you earn above
-              this amount and below the maximum of this bracket will be taxed at
-              this rate.
+              <h2>
+                <Dollars amount={segment.minimum} />
+              </h2>
+              <p>
+                This is the lower limit of this tax bracket. Any income you earn
+                below this amount will be taxed at a lower rate (if there is
+                one). Any income you earn between this amount
+                (<Dollars amount={segment.minimum} />) and the upper limit of
+                this bracket
+                ({segment.maximum ? <Dollars amount={segment.maximum} /> : "none"})
+                will be taxed at the rate of this bracket.
+              </p>
             </Modal.Content>
           </Modal>
         </td>
@@ -79,8 +87,13 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
                 <Dollars amount={segment.maximum} />
               </Modal.Trigger>
               <Modal.Content>
-                This is the top of this tax bracket. Any income you earn above
-                this amount will be taxed at a higher rate.
+                <h2>
+                  <Dollars amount={segment.maximum} />
+                </h2>
+                <p>
+                  This is the upper limit of this tax bracket. Any income you
+                  earn above this amount will be taxed at a higher rate.
+                </p>
               </Modal.Content>
             </Modal>
           )}
@@ -100,9 +113,16 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
               <Dollars amount={segment.amount} />
             </Modal.Trigger>
             <Modal.Content>
-              This is the total amount of taxes that you&apos;re paying for this
-              tax bracket. It is the result of multiplying the total amount of
-              income that falls within this bracket by the rate of this bracket.
+              <h2>
+                <Dollars amount={segment.amount} />
+              </h2>
+              <p>
+                This is the total amount of taxes that you&apos;re paying for
+                this tax bracket. It is the result of multiplying the total
+                amount of income that falls within this bracket
+                (<Dollars amount={segment.total} />) by the rate of this bracket
+                ({segment.rate}%).
+              </p>
             </Modal.Content>
           </Modal>
         </td>

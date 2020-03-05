@@ -14,11 +14,15 @@
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   left: 25vw;
-  padding: 2em;
+  padding: 1em 2em;
   position: fixed;
   top: 10vh;
   width: 50vw;
   z-index: 1;
+}
+
+.container h2 {
+  text-align: center;
 }
 
 @media screen and (max-width: 1200px) {
