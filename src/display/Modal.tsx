@@ -33,6 +33,13 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
     [open, setOpen]
   );
 
+  useEffect(
+    () => {
+      document.body.style.overflow = open ? "hidden" : "initial";
+    },
+    [open]
+  );
+
   return (
     <ModalContext.Provider value={value}>
       {children}
