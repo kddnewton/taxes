@@ -47,7 +47,7 @@ const Settings: React.FC<SettingsProps> = ({
         }))}
         value={bracketSetsKey}
       >
-        Fiscal Year
+        Year
       </SelectInput>
       <SelectInput<FilingType>
         name="type"
@@ -70,7 +70,7 @@ const Settings: React.FC<SettingsProps> = ({
       min={0}
       step={1000}
     >
-      Income
+      Taxable Income
     </NumberInput>
     <div className={styles.shortcuts}>
       <IncomeButton value={25000} onClick={onIncomeChange} />

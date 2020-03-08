@@ -50,18 +50,14 @@ type TableRowProps = {
 };
 
 const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
-  const classNames = [styles.data];
-
-  if (income <= segment.minimum) {
-    classNames.push(styles.disabled);
-  }
+  const disabled = income <= segment.minimum;
 
   return (
     <>
-      <tr className={classNames.join(" ")}>
+      <tr className={styles.data}>
         <td>
           <Modal>
-            <Modal.Trigger>
+            <Modal.Trigger disabled={disabled}>
               <Dollars amount={segment.minimum} />
             </Modal.Trigger>
             <Modal.Content>
@@ -83,7 +79,7 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
         <td>
           {segment.maximum && (
             <Modal>
-              <Modal.Trigger>
+              <Modal.Trigger disabled={disabled}>
                 <Dollars amount={segment.maximum} />
               </Modal.Trigger>
               <Modal.Content>
@@ -100,7 +96,9 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
         </td>
         <td>
           <Modal>
-            <Modal.Trigger>{segment.rate}%</Modal.Trigger>
+            <Modal.Trigger disabled={disabled}>
+              {segment.rate}%
+            </Modal.Trigger>
             <Modal.Content>
               This is the rate of this tax bracket. Any income you earn above the
               bottom and below the top of this bracket will be taxed at this rate.
@@ -109,7 +107,7 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
         </td>
         <td>
           <Modal>
-            <Modal.Trigger>
+            <Modal.Trigger disabled={disabled}>
               <Dollars amount={segment.amount} />
             </Modal.Trigger>
             <Modal.Content>
@@ -150,6 +148,8 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
     amount += segment.amount;
   });
 
+  const effectiveRate = (amount / income * 100).toFixed(2);
+
   return (
     <table className={styles.table}>
       <thead className={styles.header}>
@@ -171,14 +171,17 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
           <td>
             <Modal>
               <Modal.Trigger>
-                {(amount / income * 100).toFixed(2)}%
+                {effectiveRate}%
               </Modal.Trigger>
               <Modal.Content>
-                This is what is called your &quot;effective rate&quot;. It is
-                a result of dividing the total amount of taxes that you owe by
-                your income. Another way of thinking about it is the weighted
-                average of the rates of the tax brackets in which your income
-                falls.
+                <h2>{effectiveRate}%</h2>
+                <p>
+                  This is what is called your &quot;effective rate&quot;. It is
+                  a result of dividing the total amount of taxes that you owe by
+                  your income. Another way of thinking about it is the weighted
+                  average of the rates of the tax brackets in which your income
+                  falls.
+                </p>
               </Modal.Content>
             </Modal>
           </td>
@@ -188,9 +191,14 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
                 <Dollars amount={amount} />
               </Modal.Trigger>
               <Modal.Content>
-                This is the total amount of money that you owe in federal
-                income taxes. It is the result of adding up each number in
-                this column, which represent the total in each bracket.
+                <h2>
+                  <Dollars amount={amount} />
+                </h2>
+                <p>
+                  This is the total amount of money that you owe in federal
+                  income taxes. It is the result of adding up each number in
+                  this column, which represent the total in each bracket.
+                </p>
               </Modal.Content>
             </Modal>
           </td>

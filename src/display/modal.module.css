@@ -66,3 +66,8 @@
   line-height: inherit;
   padding: 0;
 }
+
+.trigger:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}

@@ -31,18 +31,21 @@ const App: React.FC = () => {
             What is this?
           </Modal.Trigger>
           <Modal.Content>
+            <h2>
+              What is this?
+            </h2>
             <p>
-              This web page is meant to give you an idea of how a progressive tax
-              system (like the one in place for US federal income tax) works.
-              Income is broken up into sections called &quot;brackets&quot;, each
-              taxed at a different rate.
+              This web page is meant to give you an idea of how a progressive
+              tax system (like the one in place for US federal income tax)
+              works. Income is broken up into sections called
+              &quot;brackets&quot;, each taxed at a different rate.
             </p>
             <p>
-              As you make more money, you may start to earn money within a higher
-              tax bracket. Don&apos;t worry! The money that you made that was
-              taxed at a lower rate is still taxed at the lower rate. It is only
-              the income made between the bottom and top of each bracket that is
-              taxed at the rate of that bracket.
+              As you make more money, you may start to earn money within a
+              higher tax bracket. Don&apos;t worry! The money that you made that
+              was taxed at a lower rate is still taxed at the lower rate. It is
+              only the income made between the bottom and top of each bracket
+              that is taxed at the rate of that bracket.
             </p>
           </Modal.Content>
         </Modal>

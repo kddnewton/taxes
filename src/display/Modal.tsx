@@ -42,14 +42,15 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
 
 type ModalTriggerProps = {
   className?: string;
+  disabled?: boolean;
 };
 
-const ModalTrigger: React.FC<ModalTriggerProps> = ({ children, className }) => {
+const ModalTrigger: React.FC<ModalTriggerProps> = ({ children, className, disabled }) => {
   const { onOpen } = useModal();
   const classNames = [styles.trigger, className].join(" ");
 
   return (
-    <button type="button" className={classNames} onClick={onOpen}>
+    <button type="button" className={classNames} onClick={onOpen} disabled={disabled}>
       {children}
     </button>
   );

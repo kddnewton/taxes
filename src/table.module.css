@@ -39,10 +39,6 @@
   padding: 0;
 }
 
-.disabled {
-  color: #ccc;
-}
-
 .body tr:first-child td,
 .footer tr:first-child td {
   border-top-width: 2px;
