@@ -76,6 +76,7 @@ const Settings: React.FC<SettingsProps> = ({
       <IncomeButton value={25000} onClick={onIncomeChange} />
       <IncomeButton value={50000} onClick={onIncomeChange} />
       <IncomeButton value={100000} onClick={onIncomeChange} />
+      <hr className={styles.divider} />
       <IncomeButton value={250000} onClick={onIncomeChange} />
       <IncomeButton value={500000} onClick={onIncomeChange} />
       <IncomeButton value={1000000} onClick={onIncomeChange}>
