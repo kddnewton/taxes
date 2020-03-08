@@ -12,7 +12,7 @@ test("calls back to onChange when the input value changes", () => {
   );
 
   const value = 100;
-  fireEvent.change(getByRole("textbox"), { target: { value } });
+  fireEvent.change(getByRole("spinbutton"), { target: { value } });
 
   expect(onChange).toHaveBeenCalledTimes(1);
   expect(onChange).toHaveBeenLastCalledWith(value);
