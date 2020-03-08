@@ -88,7 +88,9 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
                 </h2>
                 <p>
                   This is the upper limit of this tax bracket. Any income you
-                  earn above this amount will be taxed at a higher rate.
+                  earn above this amount will be taxed at a higher rate. Any
+                  income earned between the lower limit of this bracket and this
+                  amount will be taxed at the rate of this bracket.
                 </p>
               </Modal.Content>
             </Modal>
@@ -100,8 +102,14 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
               {segment.rate}%
             </Modal.Trigger>
             <Modal.Content>
-              This is the rate of this tax bracket. Any income you earn above the
-              bottom and below the top of this bracket will be taxed at this rate.
+              <h2>
+                {segment.rate}%
+              </h2>
+              <p>
+                This is the rate of this tax bracket. Any income you earn above
+                the lower limit and below the upper of this bracket will be
+                taxed at this rate.
+              </p>
             </Modal.Content>
           </Modal>
         </td>

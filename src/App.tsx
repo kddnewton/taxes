@@ -9,6 +9,14 @@ import { BracketSetsKey, FilingType } from "./typings";
 
 import styles from "./container.module.css";
 
+type WikiProps = {
+  page: string;
+};
+
+const Wiki: React.FC<WikiProps> = ({ children, page }) => (
+  <a href={`https://en.wikipedia.org/wiki/${page}`}>{children}</a>
+);
+
 const App: React.FC = () => {
   const [bracketSetsKey, setBracketSetsKey] = useState<BracketSetsKey>("2020");
   const [filingType, setFilingType] = useState<FilingType>("single");
@@ -37,15 +45,32 @@ const App: React.FC = () => {
             <p>
               This web page is meant to give you an idea of how a progressive
               tax system (like the one in place for US federal income tax)
-              works. Income is broken up into sections called
-              &quot;brackets&quot;, each taxed at a different rate.
+              works. Almost everything on this page is clickable, so be sure to
+              click around and get an explanation of each of the terms and
+              numbers.
             </p>
             <p>
-              As you make more money, you may start to earn money within a
-              higher tax bracket. Don&apos;t worry! The money that you made that
-              was taxed at a lower rate is still taxed at the lower rate. It is
-              only the income made between the bottom and top of each bracket
-              that is taxed at the rate of that bracket.
+              You can set your income using the input below. Note that this is
+              &quot;taxable&quot; income, which means it&apos;s how much you
+              make after deducting things like retirement or charitable
+              contributions.
+            </p>
+            <p>
+              Your income is first broken up into sections called{" "}
+              <Wiki page="Tax_bracket">&quot;brackets&quot;</Wiki>. Each bracket
+              then has its own rate at which income that falls between its lower
+              and upper limit is taxed. Once you add up each bracket&apos;s
+              total, you get the total amount of federal income tax that you
+              owe.
+            </p>
+            <p>
+              Note that this page does not take into account a lot of other
+              pieces of the tax code like{" "}
+              <Wiki page="Alternative_minimum_tax">alternative minimum tax</Wiki>,{" "}
+              <Wiki page="Capital_gains_tax">capital gains taxes</Wiki>,{" "}
+              or <Wiki page="Itemized_deduction">itemized deductions</Wiki>. The
+              function of this page is more to give a general sense of how these
+              things work than to give you a definitive number on your tax bill.
             </p>
           </Modal.Content>
         </Modal>
