@@ -1,27 +1,10 @@
 import React from "react";
 
-const formatDollars = (dollars: string) => {
-  if (dollars.length <= 3) {
-    return dollars;
-  }
-
-  const separated: string[] = [];
-
-  dollars.split("").reverse().forEach((digit, index) => {
-    if (index > 0 && index % 3 === 0) {
-      separated.push(",")
-    }
-    separated.push(digit);
-  });
-
-  return separated.reverse().join("");
-};
-
 export const formatAmount = (amount: number) => {
-  const [dollars, cents] = amount.toFixed(2).split(".");
-  const formatted = formatDollars(dollars);
+  const dollars = Math.floor(amount).toLocaleString("en");
+  const cents = amount.toFixed(2).split(".")[1];
 
-  return cents == "00" ? `$${formatted}` : `$${formatted}.${cents}`;
+  return cents == "00" ? `$${dollars}` : `$${dollars}.${cents}`;
 };
 
 type DollarProps = {
