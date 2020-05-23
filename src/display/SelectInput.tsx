@@ -2,6 +2,8 @@ import React from "react";
 
 import styles from "./control.module.css";
 
+type SelectInputValue = string | number | undefined;
+
 type Option<T> = {
   label: string;
   value: T;
@@ -18,7 +20,7 @@ type SelectInputProps<T> = Omit<SelectProps, "className" | "onChange"> & {
 // onBlur without React thinking its an unmanaged component. Disabling this rule
 // for now.
 /* eslint-disable jsx-a11y/no-onchange */
-const SelectInput = <T extends any>({ children, name, onChange, options, value, ...props }: SelectInputProps<T>) => {
+const SelectInput = <T extends SelectInputValue>({ children, name, onChange, options, value, ...props }: SelectInputProps<T>): React.ReactElement => {
   const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(event.target.value as unknown as T);
   };
@@ -34,7 +36,7 @@ const SelectInput = <T extends any>({ children, name, onChange, options, value, 
         onChange={handleChange}
         value={value}
       >
-        {options.map(option => (
+        {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>

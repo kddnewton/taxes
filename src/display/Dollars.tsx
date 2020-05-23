@@ -1,6 +1,6 @@
 import React from "react";
 
-export const formatAmount = (amount: number) => {
+export const formatAmount = (amount: number): string => {
   const dollars = Math.floor(amount).toLocaleString("en");
   const cents = amount.toFixed(2).split(".")[1];
 

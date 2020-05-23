@@ -21,7 +21,7 @@ const ModalContext = React.createContext<ModalContextState>({
 
 const useModal = () => useContext(ModalContext);
 
-const Modal = ({ children }: { children: React.ReactNode }) => {
+const Modal = ({ children }: { children: React.ReactNode }): React.ReactElement => {
   const [open, setOpen] = useState(false);
 
   const value = useMemo(
