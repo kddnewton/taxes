@@ -1,13 +1,8 @@
 import path from "path";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export default {
-  plugins: [
-    new MiniCssExtractPlugin()
-  ],
   output: {
-    path: path.join(__dirname, "docs"),
-    filename: "main.js"
+    path: path.join(__dirname, "docs")
   },
   entry: path.join(__dirname, "src", "index.tsx"),
   resolve: {
@@ -15,11 +10,15 @@ export default {
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, use: "awesome-typescript-loader" },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/
+      },
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          "style-loader",
           {
             loader: "css-loader",
             options: {
@@ -32,7 +31,7 @@ export default {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          "style-loader",
           "css-loader"
         ],
         exclude: /\.module\.css$/
