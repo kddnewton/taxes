@@ -39,7 +39,7 @@
     "@typescript-eslint/parser": "^4.22.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
-    "css-loader": "^5.2.2",
+    "css-loader": "^5.2.4",
     "dsv-loader": "^2.0.0",
     "eslint": "^7.24.0",
     "eslint-plugin-import": "^2.22.1",
