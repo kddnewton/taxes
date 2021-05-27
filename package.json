@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
+    "@babel/eslint-parser": "^7.14.3",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
     "@babel/preset-typescript": "^7.13.0",
@@ -37,7 +38,6 @@
     "@types/react-dom": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
-    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
     "dsv-loader": "^2.0.0",
@@ -57,9 +57,68 @@
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
+  },  
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "project": "tsconfig.test.json"
+    },
+    "plugins": [
+      "jsx-a11y",
+      "import",
+      "react",
+      "react-hooks",
+      "@typescript-eslint"
+    ],
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".ts", ".tsx", ".d.ts"]
+        }
+      },
+      "react": {
+        "version": "detect"
+      }
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:jsx-a11y/recommended",
+      "plugin:import/recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    ],
+    "rules": {
+      "react/prop-types": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
+    }
+  },  
+  "eslintIgnore": [
+    "/coverage/",
+    "/docs/"
+  ],
   "jest": {
+    "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.(css)$": "identity-obj-proxy"
     }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "ignoreFiles": [
+      "/coverage/",
+      "/docs/"
+    ]
   }
 }
