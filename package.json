@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/kddeisz/taxes.git"
   },
-  "author": "Kevin Deisz",
+  "author": "Kevin Newton",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/kddeisz/taxes/issues"
@@ -57,13 +57,16 @@
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
+  "resolutions": {
+    "glob-parent": "^5.1.2"
+  },
   "babel": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react",
       "@babel/preset-typescript"
     ]
-  },  
+  },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -82,7 +85,11 @@
     "settings": {
       "import/resolver": {
         "node": {
-          "extensions": [".ts", ".tsx", ".d.ts"]
+          "extensions": [
+            ".ts",
+            ".tsx",
+            ".d.ts"
+          ]
         }
       },
       "react": {
@@ -103,7 +110,7 @@
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn"
     }
-  },  
+  },
   "eslintIgnore": [
     "/coverage/",
     "/docs/"
