@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kddeisz/taxes.git"
+    "url": "git+https://github.com/kddnewton/taxes.git"
   },
   "author": "Kevin Newton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kddeisz/taxes/issues"
+    "url": "https://github.com/kddnewton/taxes/issues"
   },
-  "homepage": "https://github.com/kddeisz/taxes#readme",
+  "homepage": "https://github.com/kddnewton/taxes#readme",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"

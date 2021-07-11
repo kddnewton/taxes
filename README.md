@@ -1,6 +1,6 @@
 # US federal income taxes
 
-[![Build Status](https://github.com/kddeisz/taxes/workflows/Main/badge.svg)](https://github.com/kddeisz/taxes/actions)
+[![Build Status](https://github.com/kddnewton/taxes/workflows/Main/badge.svg)](https://github.com/kddnewton/taxes/actions)
 
 A small web application for understanding how the US federal income tax system works.
 
@@ -14,7 +14,7 @@ Ensure you have `yarn` installed. In the root of the directory run `yarn` to ins
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/taxes.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kddnewton/taxes.
 
 ## License
 
