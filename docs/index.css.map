@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/styles.css"],
+  "sourcesContent": [":root {\n  --primary: #649367;\n}\n\nbody {\n  font-family: -apple-system, system-ui, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu;\n  font-size: 16px;\n  font-weight: 400;\n  line-height: 1.4em;\n  margin: 0;\n}\n"],
+  "mappings": "AAAA,MACE,mBAGF,KACE,8EACA,eACA,gBACA,kBARF",
+  "names": []
+}

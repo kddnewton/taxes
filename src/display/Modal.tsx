@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import React, { MouseEventHandler, useContext, useEffect, useMemo, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 
 import styles from "./modal.module.css";
@@ -56,8 +56,13 @@ const ModalTrigger: React.FC<ModalTriggerProps> = ({ children, className, disabl
   const { onOpen } = useModal();
   const classNames = [styles.trigger, className].join(" ");
 
+  const onClick: MouseEventHandler<HTMLButtonElement> = (event) => {
+    event.stopPropagation();
+    onOpen();
+  };
+
   return (
-    <button type="button" className={classNames} onClick={onOpen} disabled={disabled}>
+    <button type="button" className={classNames} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
