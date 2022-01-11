@@ -34,6 +34,7 @@
     "@typescript-eslint/parser": "^5.9.1",
     "esbuild": "^0.14.11",
     "esbuild-css-modules-plugin": "^2.0.9",
+    "esbuild-jest": "^0.5.0",
     "eslint": "^8.6.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -44,13 +45,6 @@
     "stylelint": "^14.2.0",
     "stylelint-config-standard": "^24.0.0",
     "typescript": "^4.5.4"
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react",
-      "@babel/preset-typescript"
-    ]
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -101,9 +95,12 @@
     "/docs/"
   ],
   "jest": {
-    "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "\\.(css)$": "identity-obj-proxy"
+    },
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.tsx?$": "esbuild-jest"
     }
   },
   "stylelint": {
