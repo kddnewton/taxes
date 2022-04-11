@@ -48,6 +48,7 @@ const Modal = ({ children }: { children: React.ReactNode }): React.ReactElement 
 };
 
 type ModalTriggerProps = {
+  children: React.ReactNode;
   className?: string;
   disabled?: boolean;
 };
@@ -68,7 +69,7 @@ const ModalTrigger: React.FC<ModalTriggerProps> = ({ children, className, disabl
   );
 };
 
-const ModalContent: React.FC = ({ children }) => {
+const ModalContent: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { open } = useModal();
 
   if (!open) {
@@ -78,7 +79,7 @@ const ModalContent: React.FC = ({ children }) => {
   return <ModalBody>{children}</ModalBody>;
 };
 
-const ModalBody: React.FC = ({ children }) => {
+const ModalBody: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { onClose } = useModal();
   const modalRef = useRef<HTMLDivElement>(null);
 

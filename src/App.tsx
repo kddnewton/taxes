@@ -10,6 +10,7 @@ import { BracketSetsKey, FilingType } from "./typings";
 import styles from "./container.module.css";
 
 type WikiProps = {
+  children: React.ReactNode;
   page: string;
 };
 

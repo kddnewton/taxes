@@ -9,6 +9,7 @@ import { BracketSetsKey, FilingType } from "./typings";
 import styles from "./settings.module.css";
 
 type IncomeButtonProps = {
+  children?: React.ReactNode;
   value: number;
   onClick: (value: number) => void;
 };
