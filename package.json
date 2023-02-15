@@ -2,13 +2,14 @@
   "name": "taxes",
   "version": "0.1.0",
   "description": "US federal income tax visualization",
+  "type": "module",
   "scripts": {
-    "build": "esbuild src/index.tsx --bundle --format=esm --minify --outdir=docs --sourcemap --splitting --target=es6",
+    "build": "node bin/build.mjs",
     "compile": "tsc --noEmit --project tsconfig.test.json",
     "lint": "yarn lint:css && yarn lint:js",
     "lint:css": "stylelint '**/*.css'",
     "lint:js": "eslint . --cache --ext .js,.ts,.tsx",
-    "serve": "esbuild src/index.tsx --bundle --format=esm --outdir=docs --servedir=docs --sourcemap --splitting --target=esnext",
+    "serve": "node bin/serve.mjs",
     "test": "jest"
   },
   "repository": {
