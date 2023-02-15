@@ -87,6 +87,7 @@
       "plugin:@typescript-eslint/recommended-requiring-type-checking"
     ],
     "rules": {
+      "import/no-unresolved": "off",
       "react/prop-types": "off",
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn"

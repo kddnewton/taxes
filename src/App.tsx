@@ -18,8 +18,11 @@ const Wiki: React.FC<WikiProps> = ({ children, page }) => (
   <a href={`https://en.wikipedia.org/wiki/${page}`}>{children}</a>
 );
 
+const bracketSetsKeys = Object.keys(bracketSets).map((key) => parseInt(key, 10)).sort((left, right) => right - left);
+const defaultBracketSetsKey = bracketSetsKeys[0].toString() as BracketSetsKey;
+
 const App: React.FC = () => {
-  const [bracketSetsKey, setBracketSetsKey] = useState<BracketSetsKey>("2020");
+  const [bracketSetsKey, setBracketSetsKey] = useState<BracketSetsKey>(defaultBracketSetsKey);
   const [filingType, setFilingType] = useState<FilingType>("single");
   const [income, setIncome] = useState<number>(50000);
 

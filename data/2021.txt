@@ -1,0 +1,13 @@
+Tax Rate	For Single Filers	For Married Individuals Filing Joint Returns	For Heads of Households
+10%	$0 to $10,275	$0 to $20,550	$0 to $14,650
+12%	$10,275 to $41,775	$20,550 to $83,550	$14,650 to $55,900
+22%	$41,775 to $89,075	$83,550 to $178,150	$55,900 to $89,050
+24%	$89,075 to $170,050	$178,150 to $340,100	$89,050 to $170,050
+32%	$170,050 to $215,950	$340,100 to $431,900	$170,050 to $215,950
+35%	$215,950 to $539,900	$431,900 to $647,850	$215,950 to $539,900
+37%	$539,900 or more	$647,850 or more	$539,900 or more
+
+Filing Status	Deduction Amount
+Single	$12,950
+Married Filing Jointly	$25,900
+Head of Household	$19,400

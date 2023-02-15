@@ -116,7 +116,7 @@ const TableRow: React.FC<TableRowProps> = ({ income, segment }) => {
         <td>
           <Modal>
             <Modal.Trigger disabled={disabled}>
-              <Dollars amount={segment.amount} />
+              <Dollars amount={segment.amount} full />
             </Modal.Trigger>
             <Modal.Content>
               <h2>
@@ -196,7 +196,7 @@ const Table: React.FC<TableProps> = ({ bracketSet, filingType, income }) => {
           <td>
             <Modal>
               <Modal.Trigger>
-                <Dollars amount={amount} />
+                <Dollars amount={amount} full />
               </Modal.Trigger>
               <Modal.Content>
                 <h2>
