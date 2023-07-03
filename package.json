@@ -36,7 +36,7 @@
     "esbuild": "^0.18.10",
     "esbuild-css-modules-plugin": "^2.7.1",
     "esbuild-jest": "^0.5.0",
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
