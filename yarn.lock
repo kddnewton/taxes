@@ -2205,10 +2205,10 @@ es-to-primitive@^1.2.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-esbuild-css-modules-plugin@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/esbuild-css-modules-plugin/-/esbuild-css-modules-plugin-3.0.1.tgz#34df1ebe6f5868318623a430b89630b5653ab3ec"
-  integrity sha512-+eExhT8jMjaZcQZ3+q1UnEesrh4e6l9GyIf1pdI7IuKzHE3dMIuF0R4VikliV9qDj5zPYK1b81HgXAWfg+XPoQ==
+esbuild-css-modules-plugin@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/esbuild-css-modules-plugin/-/esbuild-css-modules-plugin-3.0.2.tgz#eea06cff1bbcacf052246d24c3e4c108ddcc5b5b"
+  integrity sha512-Ru5NKnbA3m7E79ZIs9o+ZVqzsVGjSyI1fKAPXRT4zQeSSKty9KasIDcLNuFmDGhFZdooARA6cd3I0GGhHAdW8Q==
   dependencies:
     lightningcss "^1.21.7"
     lodash "^4.17.21"
