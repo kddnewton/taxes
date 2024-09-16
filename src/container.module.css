@@ -14,25 +14,25 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (width <= 1600px) {
   .container {
     width: 60%;
   }
 }
 
-@media screen and (max-width: 1400px) {
+@media screen and (width <= 1400px) {
   .container {
     width: 70%;
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (width <= 1200px) {
   .container {
     width: 80%;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (width <= 800px) {
   .container {
     width: 90%;
   }

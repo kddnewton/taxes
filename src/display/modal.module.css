@@ -27,7 +27,7 @@
   text-align: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (width <= 1200px) {
   .container {
     left: 10vw;
     width: 80vw;
