@@ -33,7 +33,7 @@
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@typescript-eslint/eslint-plugin": "^8.35.1",
-    "@typescript-eslint/parser": "^8.35.1",
+    "@typescript-eslint/parser": "^8.36.0",
     "esbuild": "^0.25.5",
     "esbuild-css-modules-plugin": "^3.1.5",
     "esbuild-jest": "^0.5.0",
