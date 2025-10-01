@@ -47,7 +47,7 @@
     "jest-environment-jsdom": "^30.2.0",
     "stylelint": "^16.24.0",
     "stylelint-config-standard": "^39.0.0",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "jest": {
     "moduleNameMapper": {
